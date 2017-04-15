@@ -1,0 +1,7 @@
+Brenan Balbido
+The system shall notify students when there is free food on campus.
+The system shall notify students where there is free food on campus.
+The system shall allow event organizers to provide a description of the event.
+The system shall allow event organizers to cancel an event.
+The system shall require event organizers to provide their email address before the event broadcast.
+

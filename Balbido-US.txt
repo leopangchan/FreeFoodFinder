@@ -1,0 +1,5 @@
+Brenan Balbido
+As a student, I want to know where free food is on campus so that I can save money.
+As a club president, I want to tell people that my club is giving out free food so that people will come and hopefully stay for club meetings.
+As someone who is adventurous with food, I want to get notifications on free food so that I do not have to eat campus food.
+
