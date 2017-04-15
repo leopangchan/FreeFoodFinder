@@ -1,0 +1,11 @@
+The system shall notify the user when an event is posted.
+
+The system shall inform the user when and where the event happens.
+
+The system shall allow users to post new events to other users.
+
+The system shall allow users to report posts that contain misleading* information.
+
+The system shall remove posts at the expiration time which the poster specifices.
+
+* A post is considered misleading if no food is available at the location, or has stipulations before attendees can consume it.
