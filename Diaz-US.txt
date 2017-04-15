@@ -1,0 +1,10 @@
+
+Fernando Diaz
+
+US's
+
+1. As a member of multiple clubs, I want to know which ones will be serving food, so I can choose which to attend.
+
+2. As a busy student, I want to know which clubs will be serving food, so that I don't have to spend time cooking.
+
+3. As a broke student, I want to know which clubs will ber serving food, so I don't have to spend money buying food.

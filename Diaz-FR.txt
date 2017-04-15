@@ -1,0 +1,11 @@
+
+Fernando Diaz
+
+
+FR's
+
+1. The system shall remove past club meetings from the list every night at midnight.
+
+2. The system shall list all club meetings (and thier starting times) that are schelduled for that calender week.
+
+3. The system shall list all the foods that will be served at a club meeting when a user has selected a club meeting.
