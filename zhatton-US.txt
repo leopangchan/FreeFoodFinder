@@ -1,0 +1,4 @@
+As a hiring manager, I want to find a job candidates profile, so I can have a better judgement about the candidate.
+As a user, I want to update my profile picture, so other users can know what I look like.
+As a new user, I want a tutorial explaining how to set up my profile, so I can easily set up my profile.
+

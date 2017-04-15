@@ -1,0 +1,4 @@
+The system shall allow the user to search for available homes to stay at.
+The system shall allow the user to write review of homes they have stayed at.
+The system shall display available homes at a user-specified location*.
+*locations may consist of but are not limited to: cities, addresses, zip codes, and landmarks
