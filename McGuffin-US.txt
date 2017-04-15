@@ -1,0 +1,7 @@
+As a student, I want to know the locations and times of events with free food on campus, so I can attend those events and eat there.
+
+
+As a club officer, I want to advertise my club using free food as a motivator, so that more people are incited to attend my club meeting.
+
+
+As an event manager, I want to know how many people plan to attend my event, so that I can adjust the amount of food I provide.

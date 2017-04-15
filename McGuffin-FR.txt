@@ -1,0 +1,8 @@
+The system shall allow event managers to register events, and to input date and time of the event, location of the event, and description of the event.
+
+
+The system shall display events which will take place within 72 hours on a map.
+
+
+The system shall allow users to notify the event managers of their plans to attend the event.
+
