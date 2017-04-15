@@ -1,0 +1,9 @@
+1. As an event organizer, I want to attract more students to my events, so that I
+can inform students about our company and look for talented students.
+
+2. As a poor student, I want to get some food since I can barely pay my tuition,
+so that I don’t starve and save money for my tuition.
+
+3. As a busy student who is seeking for career opportunities, I want to learn an
+internship opportunities and have free food, so that I don’t need to spend money
+on food and connect with recruiters.

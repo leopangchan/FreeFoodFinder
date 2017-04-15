@@ -1,0 +1,4 @@
+The system shall display images of an apartment rental.
+The system shall display the price of an apartment rental.
+The system shall display the location of an apartment rental on a map.
+
