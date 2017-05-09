@@ -1,9 +1,11 @@
-import java.util.date;
+package com.example.yiupang.freefoodfinder;
 
-@Entity
+import java.util.Date;
+
+//@Entity
 public class Event
 {
-    @Id
+//    @Id
     public long eventId;
     public long userId;
     public String name;
