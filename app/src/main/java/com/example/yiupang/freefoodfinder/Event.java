@@ -18,7 +18,7 @@ public class Event
     }
 
     public boolean setName(String name) {
-        if (name.length > 3 && name.length < 31) {
+        if (name.length() > 3 && name.length() < 31) {
             this.name = name;
             return true;
         } else {
@@ -31,7 +31,7 @@ public class Event
     }
 
     public boolean setFoodType(String foodType){
-        if(foodType.length > 3 && foodType.lengt <31) {
+        if(foodType.length() > 3 && foodType.length() <31) {
             this.foodType = foodType;
             return true;
         }
