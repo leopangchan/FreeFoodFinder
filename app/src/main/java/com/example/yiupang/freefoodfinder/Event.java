@@ -6,10 +6,68 @@ public class Event
 {
     public long eventId;
     public long userId;
-    public String name;
+    private String name;
     public Date time;
-    public String foodType;
-    public String description;
-    public double lat;
-    public double lng;
+    private String foodType;
+    private String description;
+    private double latitude;
+    private double longitude;
+
+    public String getName() {
+        return name;
+    }
+
+    public boolean setName(String name) {
+        if (name.length > 3 && name.length < 31) {
+            this.name = name;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public String getFoodType() {
+        return foodType;
+    }
+
+    public boolean setFoodType(String foodType){
+        if(foodType.length > 3 && foodType.lengt <31) {
+            this.foodType = foodType;
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public double getLatitude(){
+        return latitude;
+    }
+
+    public boolean setLatitude(double latitude){
+        if(latitude >= -90.0 && latitude <= 90.0){
+            this.latitude = latitude;
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public double getLongitude(){
+        return longitude;
+    }
+
+    public boolean setLongitude(double longitude){
+        if(latitude >= -90.0 && latitude <= 90.0){
+            this.longitude = longitude;
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 }
+
+
