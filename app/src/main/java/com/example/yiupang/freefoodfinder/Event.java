@@ -68,6 +68,15 @@ public class Event
         }
     }
 
+    public String getDescription(){return this.description;}
+
+
+    public Event(String name, String foodType, String description)
+    {
+        this.name = name;
+        this.foodType = foodType;
+        this.description = description;
+    }
 }
 
 

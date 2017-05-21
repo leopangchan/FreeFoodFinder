@@ -11,18 +11,53 @@ import android.view.View;
 import com.roughike.bottombar.BottomBar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.BottomBarBadge;
 import com.roughike.bottombar.OnMenuTabClickListener;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookSdk;
+import com.facebook.login.widget.LoginButton;
+import com.facebook.login.LoginResult;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+
 public class MainActivity extends ActionBarActivity
 {
     BottomBar bottomBar;
+    private TextView info;
+    //private LoginButton loginButton;
+    private CallbackManager callbackManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+/*        FacebookSdk.sdkInitialize(getApplicationContext());
+        callbackManager = CallbackManager.Factory.create();
+        info = (TextView) findViewById(R.id.info);
+        loginButton = (LoginButton) findViewById(R.id.login_button);
+
+        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                info.setText("UserID:" + loginResult.getAccessToken().getUserId() + "\n" +
+                "Auth Token" +
+                loginResult.getAccessToken().getToken());
+            }
+
+            @Override
+            public void onCancel() {
+                info.setText("Login insuccessful");
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                info.setText("Login insuccessful");
+            }
+        });*/
         setContentView(R.layout.activity_main);
         bottomBar = BottomBar.attach(this, savedInstanceState);
         bottomBar.setItemsFromMenu(R.menu.menu_main, new OnMenuTabClickListener()
@@ -63,11 +98,6 @@ public class MainActivity extends ActionBarActivity
         bottomBar.mapColorForTab(1, "#ff0000");
         bottomBar.mapColorForTab(2, "#ff0000");
         bottomBar.mapColorForTab(3, "#ff0000");
-
-        BottomBarBadge unread;
-        unread = bottomBar.makeBadgeForTabAt(3, "#FF0000", 13);
-        unread.show();
-
     }
 
     @Override
