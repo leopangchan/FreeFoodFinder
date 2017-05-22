@@ -31,7 +31,8 @@ public class MapScreen extends android.support.v4.app.Fragment implements OnMapR
         return view;
     }
 
-/*    @Override
+    //CODE SMELL: remove comment block
+    /*    @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
@@ -42,12 +43,12 @@ public class MapScreen extends android.support.v4.app.Fragment implements OnMapR
     public void onMapReady(GoogleMap map)
     {
         // Add a marker in Sydney and move the camera
-        LatLng SLO = new LatLng(35.2827778, -120.6586111);
-        LatLng SF = new LatLng(37.774929, -122.419416);
+        LatLng slo = new LatLng(35.2827778, -120.6586111);
+        LatLng sf = new LatLng(37.774929, -122.419416);
         LatLng theP = new LatLng(35.302833, -120.651662);
-        map.addMarker(new MarkerOptions().position(SLO).title("Downtown").snippet("Downtownd of SLO"));
+        map.addMarker(new MarkerOptions().position(slo).title("Downtown").snippet("Downtownd of slo"));
         map.addMarker(new MarkerOptions().position(theP).title("The P").snippet("The “P” is a 50-by-30 foot landmark located atop a northwestern hill of California Polytechnic State University, San Luis Obispo, California."));
-        map.addMarker(new MarkerOptions().position(SF).title("Marker in SF").snippet("Golden Gate Bridge"));
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(SLO, 12.0f));
+        map.addMarker(new MarkerOptions().position(sf).title("Marker in sf").snippet("Golden Gate Bridge"));
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(slo, 12.0f));
     }
 }
