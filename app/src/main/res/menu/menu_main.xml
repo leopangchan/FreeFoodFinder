@@ -1,27 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/BottomBarEvents"
-        android:icon="@mipmap/ic_launcher"
-        android:title="Events">
+        android:icon="@drawable/list"
+        android:title="@string/events">
 
     </item>
 
     <item android:id="@+id/BottomBarItemMap"
-        android:icon="@mipmap/ic_launcher"
-        android:title="Map">
+        android:icon="@drawable/map"
+        android:title="@string/map">
 
     </item>
 
     <item android:id="@+id/BottomBarItemMyEvent"
-        android:icon="@mipmap/ic_launcher"
-        android:title="My Event">
+        android:icon="@drawable/myevent"
+        android:title="@string/myevents">
 
     </item>
 
     <item android:id="@+id/BottomBarItemAboutUs"
-        android:icon="@mipmap/ic_launcher"
-        android:title="Setting">
+        android:icon="@drawable/aboutus2"
+        android:title="@string/about_us">
 
     </item>
-
 </menu>
