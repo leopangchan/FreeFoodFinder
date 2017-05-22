@@ -3,7 +3,10 @@ package com.example.yiupang.freefoodfinder;
 import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
+
+//CODE SMELL: unused import
 import android.support.v7.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,8 +29,12 @@ public class EventArrayAdapter extends ArrayAdapter<Event>
     }
 
     private Context context;
-    private int layoutResourceId;
     List<Event> events;
+
+    // CODE SMELL: unused private field
+    private int layoutResourceId;
+
+
 
     public EventArrayAdapter(Context context, int layoutResourceId, List<Event> events)
     {
@@ -49,28 +56,30 @@ public class EventArrayAdapter extends ArrayAdapter<Event>
     @Override
     public View getView(int position, View convertView, ViewGroup parent)
     {
-        ViewHolder holder = null;
+        ViewHolder holder;
         LayoutInflater inflater = ((Activity) context).getLayoutInflater();
+        View newConvertView = convertView;
 
-        if(convertView == null) {
-            convertView = inflater.inflate(R.layout.events_list_item, parent, false);
+        if(newConvertView == null) {
+            newConvertView = inflater.inflate(R.layout.events_list_item, parent, false);
             holder = new ViewHolder();
 
-            holder.name = (TextView) convertView.findViewById(R.id.name);
-            holder.type = (TextView) convertView.findViewById(R.id.type);
-            holder.desc = (TextView) convertView.findViewById(R.id.desc);
+            holder.name = (TextView) newConvertView.findViewById(R.id.name);
+            holder.type = (TextView) newConvertView.findViewById(R.id.type);
+            holder.desc = (TextView) newConvertView.findViewById(R.id.desc);
 
-            Event row_pos = events.get(position);
+            Event rowPos = events.get(position);
 
-            holder.name.setText(row_pos.getName());
-            holder.type.setText(row_pos.getFoodType());
-            holder.desc.setText(row_pos.getDescription());
+            holder.name.setText(rowPos.getName());
+            holder.type.setText(rowPos.getFoodType());
+            holder.desc.setText(rowPos.getDescription());
 
-            convertView.setTag(holder);
+            newConvertView.setTag(holder);
         } else {
-            holder = (ViewHolder) convertView.getTag();
+            // CODE SMELL AND BUG: Useless Assignment
+            holder = (ViewHolder) newConvertView.getTag();
         }
 
-        return convertView;
+        return newConvertView;
     }
 }

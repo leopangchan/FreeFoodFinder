@@ -2,20 +2,24 @@ package com.example.yiupang.freefoodfinder;
 
 import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.support.v7.app.ActionBarActivity;
+
+//CODE SMELLS: following 4 imports are unused
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+
 import android.view.View;
-import com.roughike.bottombar.BottomBar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.roughike.bottombar.BottomBar;
-import com.roughike.bottombar.BottomBarBadge;
 import com.roughike.bottombar.OnMenuTabClickListener;
+
+//CODE SEMLL: unused import
+import com.roughike.bottombar.BottomBarBadge;
 
 import com.facebook.CallbackManager;
 import com.facebook.FacebookSdk;
@@ -24,17 +28,23 @@ import com.facebook.login.LoginResult;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 
+
+
 public class MainActivity extends ActionBarActivity
 {
+    static final String RED = "ff0000";
     BottomBar bottomBar;
-    private TextView info;
+
+    //CODE SMELL: next 3 lines of comments should be removeed
+    //private TextView info;
     //private LoginButton loginButton;
-    private CallbackManager callbackManager;
+    //private CallbackManager callbackManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        //CODE SMELL: Remove comment block
 /*        FacebookSdk.sdkInitialize(getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
         info = (TextView) findViewById(R.id.info);
@@ -60,6 +70,8 @@ public class MainActivity extends ActionBarActivity
         });*/
         setContentView(R.layout.activity_main);
         bottomBar = BottomBar.attach(this, savedInstanceState);
+
+        //CODE SMELL: It's complicated
         bottomBar.setItemsFromMenu(R.menu.menu_main, new OnMenuTabClickListener()
         {
             @Override
@@ -90,14 +102,14 @@ public class MainActivity extends ActionBarActivity
             @Override
             public void onMenuTabReSelected(@IdRes int menuItemId)
             {
-
+                //CODE SMELL: This method is empty
             }
         });
 
-        bottomBar.mapColorForTab(0, "#ff0000");
-        bottomBar.mapColorForTab(1, "#ff0000");
-        bottomBar.mapColorForTab(2, "#ff0000");
-        bottomBar.mapColorForTab(3, "#ff0000");
+        bottomBar.mapColorForTab(0, RED);
+        bottomBar.mapColorForTab(1, RED);
+        bottomBar.mapColorForTab(2, RED);
+        bottomBar.mapColorForTab(3, RED);
     }
 
     @Override
@@ -112,15 +124,17 @@ public class MainActivity extends ActionBarActivity
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+
+        //CODE SMELL AND BUG: useless assignment
         int id = item.getItemId();
 
-/*
+        //CODE SMELL: remove comment block
+        /*
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
-*/
-
+        */
         return super.onOptionsItemSelected(item);
     }
 }

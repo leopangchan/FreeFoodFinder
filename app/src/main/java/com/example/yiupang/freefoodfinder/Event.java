@@ -4,18 +4,38 @@ import java.util.Date;
 
 public class Event
 {
-    public long eventId;
-    public long userId;
+    private long eventId;
+    private long userId;
     private String name;
-    public Date time;
+    private Date time;
     private String foodType;
     private String description;
     private double latitude;
     private double longitude;
 
+    public Event(){
+        //Empty Constructor
+    }
+
+    public Event(String name, String foodType, String description)
+    {
+        this.name = name;
+        this.foodType = foodType;
+        this.description = description;
+    }
+
     public String getName() {
         return name;
     }
+
+    public long getEventId() { return eventId;}
+    public void setEventId(long id) { eventId = id; }
+
+    public long getUserId(){ return userId; }
+    public void setUserId(long id){ userId = id; }
+
+    public Date getTime(){ return time; }
+    public void setTime(Date d){ time = d; }
 
     public boolean setName(String name) {
         if (name.length() > 3 && name.length() < 31) {
@@ -59,7 +79,7 @@ public class Event
     }
 
     public boolean setLongitude(double longitude){
-        if(latitude >= -90.0 && latitude <= 90.0){
+        if(longitude >= -180.0 && longitude <= 180.0){
             this.longitude = longitude;
             return true;
         }
@@ -69,14 +89,10 @@ public class Event
     }
 
     public String getDescription(){return this.description;}
+    public void setDescription(String desc){description = desc;}
 
 
-    public Event(String name, String foodType, String description)
-    {
-        this.name = name;
-        this.foodType = foodType;
-        this.description = description;
-    }
+
 }
 
 
