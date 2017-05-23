@@ -23,7 +23,7 @@ public class MyEventScreen extends android.support.v4.app.Fragment
     {
         View view = inflater.inflate(R.layout.myevent_screen, container, false);
 
-        /* ArrayList<Event> myEventsArray = new ArrayList();
+        ArrayList<Event> myEventsArray = new ArrayList();
         myEventsArray.add(new Event("Free Food 1", "Pizza", "Come !!"));
         myEventsArray.add(new Event("Free Food 5", "GodPizza", "Come Again !!"));
         myEventsArray.add(new Event("Free Food 4", "GodPizza", "Come Again !!"));
@@ -41,7 +41,7 @@ public class MyEventScreen extends android.support.v4.app.Fragment
 
         EventArrayAdapter adapter = new EventArrayAdapter(view.getContext(), R.layout.events_list_item, favEventsArray);
         ListView favEventsListView = (ListView) view.findViewById(R.id.favevents_list);
-        favEventsListView.setAdapter(adapter); */
+        favEventsListView.setAdapter(adapter);
 
         return view;
     }
