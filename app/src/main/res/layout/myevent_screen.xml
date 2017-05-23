@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+android:orientation="vertical" android:layout_width="match_parent"
+android:layout_height="match_parent">
+
+<!-- <TextView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:text="My Events"
+    android:typeface="serif"
+    android:textStyle="bold"
+    android:textSize="30dp">
+
+</TextView>
+
+<ListView
+    android:layout_width="fill_parent"
+    android:layout_height="0dp"
+    android:layout_weight="0.5"
+    android:background="#fdd"
+    android:id="@+id/myevents_list"/>
+
+<ListView
+    android:layout_width="fill_parent"
+    android:layout_height="0dp"
+    android:layout_weight="0.5"
+    android:background="#dfd"
+    android:id="@+id/favevents_list"/> -->
 
 </LinearLayout>
