@@ -1,5 +1,6 @@
 package com.example.yiupang.freefoodfinder;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v7.app.ActionBarActivity;
@@ -106,10 +107,10 @@ public class MainActivity extends ActionBarActivity
             }
         });
 
-        bottomBar.mapColorForTab(0, RED);
-        bottomBar.mapColorForTab(1, RED);
-        bottomBar.mapColorForTab(2, RED);
-        bottomBar.mapColorForTab(3, RED);
+        bottomBar.mapColorForTab(0, Color.RED);
+        bottomBar.mapColorForTab(1, Color.RED);
+        bottomBar.mapColorForTab(2, Color.RED);
+        bottomBar.mapColorForTab(3, Color.RED);
     }
 
     @Override
@@ -124,7 +125,6 @@ public class MainActivity extends ActionBarActivity
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-
         //CODE SMELL AND BUG: useless assignment
         int id = item.getItemId();
 
