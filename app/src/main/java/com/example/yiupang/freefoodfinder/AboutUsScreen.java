@@ -47,7 +47,7 @@ public class AboutUsScreen extends android.support.v4.app.Fragment
                         " company recruiting sessions, and campus events near your current location." +
                         " Simply select an event to get all deets.")
                 .isRTL(false)
-                .setImage(R.drawable.dummy_image2)
+                //.setImage(R.drawable.dummy_image2)
                 .addGroup("Connect with us")
                 .addEmail("contact@freefoodfinder.com")
                 .addWebsite("freefoodfinder.io")
@@ -62,9 +62,6 @@ public class AboutUsScreen extends android.support.v4.app.Fragment
                 .addItem(getCopyRightsElement())
                 .create();
 
-
-
-
         return aboutPage;
 
     }
@@ -73,7 +70,7 @@ public class AboutUsScreen extends android.support.v4.app.Fragment
         Element copyRightsElement = new Element();
         final String copyrights = String.format(getString(R.string.copy_right), Calendar.getInstance().get(Calendar.YEAR));
         copyRightsElement.setTitle(copyrights);
-        copyRightsElement.setIconDrawable(R.drawable.about_icon_copy_right);
+        //copyRightsElement.setIconDrawable(R.drawable.about_icon_copy_right);
         copyRightsElement.setIconTint(mehdi.sakout.aboutpage.R.color.about_item_icon_color);
         copyRightsElement.setIconNightTint(android.R.color.white);
         copyRightsElement.setGravity(Gravity.CENTER);
