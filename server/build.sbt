@@ -1,4 +1,4 @@
-name := """play-java"""
+name := """Free Food Finder"""
 
 version := "1.0-SNAPSHOT"
 
