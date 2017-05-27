@@ -71,7 +71,6 @@ public class MainActivity extends ActionBarActivity
         });*/
         setContentView(R.layout.activity_main);
         bottomBar = BottomBar.attach(this, savedInstanceState);
-
         //CODE SMELL: It's complicated
         bottomBar.setItemsFromMenu(R.menu.menu_main, new OnMenuTabClickListener()
         {
@@ -117,6 +116,7 @@ public class MainActivity extends ActionBarActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.top_menu, menu);
         return true;
     }
 

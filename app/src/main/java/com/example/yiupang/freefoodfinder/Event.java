@@ -10,8 +10,8 @@ public class Event
     private Date time;
     private String foodType;
     private String description;
-    private double latitude;
-    private double longitude;
+    private double lat;
+    private double lng;
 
     public Event(){
         //Empty Constructor
@@ -60,13 +60,13 @@ public class Event
         }
     }
 
-    public double getLatitude(){
-        return latitude;
+    public double getLat(){
+        return lat;
     }
 
     public boolean setLatitude(double latitude){
         if(latitude >= -90.0 && latitude <= 90.0){
-            this.latitude = latitude;
+            this.lat = latitude;
             return true;
         }
         else{
@@ -74,13 +74,13 @@ public class Event
         }
     }
 
-    public double getLongitude(){
-        return longitude;
+    public double getLng(){
+        return lng;
     }
 
     public boolean setLongitude(double longitude){
         if(longitude >= -180.0 && longitude <= 180.0){
-            this.longitude = longitude;
+            this.lng = longitude;
             return true;
         }
         else{
@@ -91,7 +91,10 @@ public class Event
     public String getDescription(){return this.description;}
     public void setDescription(String desc){description = desc;}
 
-
+    @Override
+    public String toString(){
+        return "name: " + this.name;
+    }
 
 }
 
