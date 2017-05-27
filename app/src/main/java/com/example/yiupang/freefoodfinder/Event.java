@@ -2,7 +2,7 @@ package com.example.yiupang.freefoodfinder;
 
 import java.util.Date;
 
-public class Event
+class Event
 {
     private long eventId;
     private long userId;
@@ -13,11 +13,11 @@ public class Event
     private double lat;
     private double lng;
 
-    public Event(){
+    Event(){
         //Empty Constructor
     }
 
-    public Event(String name, String foodType, String description)
+    Event(String name, String foodType, String description)
     {
         this.name = name;
         this.foodType = foodType;

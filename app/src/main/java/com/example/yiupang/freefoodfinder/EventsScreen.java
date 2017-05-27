@@ -2,27 +2,15 @@ package com.example.yiupang.freefoodfinder;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-//CODE SMELL: unused import
 import android.widget.AdapterView;
-
 import android.widget.ListView;
 
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.ArrayList;
-
-//CODE SMELL: unised import
-import java.util.HashMap;
 import java.util.List;
-import java.io.DataOutputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.BufferedReader;
 
 /**
  * Created by yiupang on 5/6/2017.

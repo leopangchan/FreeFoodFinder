@@ -9,8 +9,7 @@
         android:text="Events"
         android:typeface="serif"
         android:textStyle="bold"
-        android:textSize="30dp">
-
+        android:textSize="30sp">
         </TextView>
 
     <ListView

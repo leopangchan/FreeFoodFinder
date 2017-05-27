@@ -17,6 +17,7 @@
 
     <TextView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/type"
+        android:layout_toEndOf="@+id/name"
         android:layout_width="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_height="wrap_content"
