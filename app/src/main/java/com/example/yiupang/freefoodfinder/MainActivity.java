@@ -22,53 +22,16 @@ import com.roughike.bottombar.OnMenuTabClickListener;
 //CODE SEMLL: unused import
 import com.roughike.bottombar.BottomBarBadge;
 
-import com.facebook.CallbackManager;
-import com.facebook.FacebookSdk;
-import com.facebook.login.widget.LoginButton;
-import com.facebook.login.LoginResult;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
-
-
-
 public class MainActivity extends ActionBarActivity
 {
     static final String RED = "ff0000";
     BottomBar bottomBar;
 
-    //CODE SMELL: next 3 lines of comments should be removeed
-    //private TextView info;
-    //private LoginButton loginButton;
-    //private CallbackManager callbackManager;
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        //CODE SMELL: Remove comment block
-/*        FacebookSdk.sdkInitialize(getApplicationContext());
-        callbackManager = CallbackManager.Factory.create();
-        info = (TextView) findViewById(R.id.info);
-        loginButton = (LoginButton) findViewById(R.id.login_button);
 
-        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                info.setText("UserID:" + loginResult.getAccessToken().getUserId() + "\n" +
-                "Auth Token" +
-                loginResult.getAccessToken().getToken());
-            }
-
-            @Override
-            public void onCancel() {
-                info.setText("Login insuccessful");
-            }
-
-            @Override
-            public void onError(FacebookException error) {
-                info.setText("Login insuccessful");
-            }
-        });*/
         setContentView(R.layout.activity_main);
         bottomBar = BottomBar.attach(this, savedInstanceState);
         //CODE SMELL: It's complicated

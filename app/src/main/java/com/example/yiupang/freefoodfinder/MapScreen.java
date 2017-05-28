@@ -47,7 +47,7 @@ public class MapScreen extends android.support.v4.app.Fragment implements OnMapR
         LatLng slo = new LatLng(35.2827778, -120.6586111);
         LatLng sf = new LatLng(37.774929, -122.419416);
         LatLng theP = new LatLng(35.302833, -120.651662);
-        map.addMarker(new MarkerOptions().position(slo).title("Downtown").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)).snippet("Downtownd of slo"));
+        map.addMarker(new MarkerOptions().position(slo).title("Downtown").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)).snippet("Downtown of slo"));
         map.addMarker(new MarkerOptions().position(theP).title("The P").snippet("The “P” is a 50-by-30 foot landmark located atop a northwestern hill of California Polytechnic State University, San Luis Obispo, California."));
         map.addMarker(new MarkerOptions().position(sf).title("Marker in sf").snippet("Golden Gate Bridge"));
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(slo, 12.0f));
