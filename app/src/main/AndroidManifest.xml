@@ -39,8 +39,7 @@
         <activity
             android:name=".MainActivity"
             android:parentActivityName=".LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <!-- Google API meta-deta -->
         <meta-data
@@ -50,9 +49,14 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-
-
+        <!-- Event Details Activity -->
+        <activity
+            android:name=".EventDetailsScreen1"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
 
 
     </application>
+
 </manifest>

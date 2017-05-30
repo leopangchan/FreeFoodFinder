@@ -1,15 +1,24 @@
 package com.example.yiupang.freefoodfinder;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 
+import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.support.v7.app.AppCompatActivity;
 
+import android.os.Parcelable;
+
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -17,7 +26,7 @@ import java.util.List;
  *
  */
 
-public class EventsScreen extends android.support.v4.app.Fragment
+public class EventsScreen extends Fragment
 {
 
     @Nullable
@@ -44,14 +53,34 @@ public class EventsScreen extends android.support.v4.app.Fragment
         return view;
     }
 
-    public void setItemListener(ListView listView)
+    public void setItemListener(final ListView listView)
     {
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                AboutUsScreen es = new AboutUsScreen();
-                getFragmentManager().beginTransaction().replace(R.id.frame, es).commit();
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id)
+            {
+                Event selectedEvent = (Event) adapterView.getAdapter().getItem(position);
+               /* Log.d("tag", selectedEvent.getName());
+                Log.d("tag", selectedEvent.getFoodType());
+                Log.d("tag", selectedEvent.getDescription()); */
+
+                switchActivity(selectedEvent);
+
+               /* EventDetailsScreen es = new EventDetailsScreen();
+                getFragmentManager().beginTransaction().replace(R.id.frame, es).commit();*/
             }
         });
+    }
+
+    public void switchActivity(Event selectedEvent)
+    {
+        Intent details = new Intent(getContext(), EventDetailsScreen1.class);
+
+        details.putExtra("selectedEventName", selectedEvent.getName());
+        details.putExtra("selectedEventDesc", selectedEvent.getDescription());
+        details.putExtra("selectedEventFoodType", selectedEvent.getFoodType());
+
+        startActivity(details);
     }
 }

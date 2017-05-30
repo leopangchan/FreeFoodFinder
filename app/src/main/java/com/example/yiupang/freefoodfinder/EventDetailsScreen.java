@@ -2,10 +2,12 @@ package com.example.yiupang.freefoodfinder;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -27,6 +29,8 @@ public class EventDetailsScreen extends Fragment
         View view = inflater.inflate(R.layout.event_details_screen, container, false);
 
 
+
+
         return view;
     }
 
@@ -35,8 +39,8 @@ public class EventDetailsScreen extends Fragment
      *
      * @param evt The event to be displayed
      */
-    public void captureNewEvent(Event evt)
+    /*public void captureNewEvent(Event evt)
     {
         e = evt;
-    }
+    }*/
 }
