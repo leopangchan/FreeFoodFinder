@@ -1,9 +1,9 @@
 package controllers;
 
+import play.db.jpa.Transactional;
+import play.db.jpa.JPA;
 import play.mvc.*;
 import play.libs.Json;
-
-import views.html.*;
 
 import java.util.List;
 import java.util.LinkedList;
@@ -54,19 +54,38 @@ public class EventsController extends Controller {
 	return ok(Json.toJson(res));
     }
 
+    @Transactional
     public Result create()
     {
-	return notFound();
+    	Event e = Json.fromJson(request().body().asJson(), Event.class);
+    	e.eventId = 0;
+		JPA.em().persist(e);
+		return created(Json.toJson(e));
     }
 
+    @Transactional
     public Result update(long id)
     {
-	return notFound();
+    	Event e = Json.fromJson(request().body().asJson(), Event.class);
+    	e.eventId = id;
+    	if (!JPA.em().contains(e))
+    	{
+    		return notFound("No event with id "+id);
+    	}
+		JPA.em().merge(e);
+		return ok(Json.toJson(e));
     }
 
+    @Transactional
     public Result delete(long id)
     {
-	return notFound();
+    	Event e = JPA.em().find(Event.class, id);
+    	if (e == null)
+    	{
+    		return notFound("No event with id "+id);
+    	}
+		JPA.em().remove(e);
+		return ok(Json.toJson(e));
     }
 
 }
