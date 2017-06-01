@@ -1,9 +1,7 @@
 <resources>
     <string name="app_name">FreeFoodFinder</string>
     <string name="action_settings">Settings</string>
-
-    <!-- id # must match with your fb developer account -->
-    <string name="facebook_app_id">1363372700411977</string>
+    <string name="facebook_app_id">169855136874779</string>
 
     <!-- Titles for the button bar -->
     <string name="about_us">About Us</string>
@@ -13,5 +11,8 @@
 
     <string name="copy_right">Copyrights © %1$d</string>
 
-
+    <!--Strings on the event list-->
+    <string name="food_type">Food type: </string>
+    <string name="description">Description: </string>
+    <string name="host">Host </string>
 </resources>

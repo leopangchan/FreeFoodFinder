@@ -1,39 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:padding="10dip">
-
-    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:padding="10dip"
-        android:textSize="16sp"
-        android:textStyle="bold" >
-    </TextView>
-
-    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/type"
-        android:layout_toEndOf="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_height="wrap_content"
-        android:padding="10dip"
-        android:textSize="16sp"
-        android:textStyle="bold" >
-    </TextView>
-
-    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/desc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/name"
-        android:padding="10dip"
-        android:textSize="16sp"
-        android:textStyle="bold" >
-    </TextView>
-</RelativeLayout>
-
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+    <LinearLayout android:id="@+id/Text"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="10dip">
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold|italic"
+            />
+        <TextView
+            android:text="@string/food_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#FF267F00"
+            />
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            />
+        <TextView
+            android:text="@string/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#FF267F00"
+            />
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            />
+    </LinearLayout>
+    <ImageView
+        android:contentDescription="@string/host"
+        android:id="@+id/Image"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:padding="5dp"
+        android:src="@drawable/default_image"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout >

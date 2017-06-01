@@ -41,7 +41,7 @@
         android:layout_gravity="center_horizontal"
         android:adjustViewBounds="true"
         android:cropToPadding="false"
-        android:src="@drawable/logo2"
+        android:src="@drawable/com_facebook_button_icon"
         android:layout_marginBottom="57dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true" />
