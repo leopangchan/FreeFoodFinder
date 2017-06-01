@@ -41,11 +41,12 @@ public class EventsController extends Controller {
     public Result update(long id)
     {
     	Event e = Json.fromJson(request().body().asJson(), Event.class);
-    	e.eventId = id;
-    	if (!JPA.em().contains(e))
+    	Event e0 = JPA.em().find(Event.class, id);
+    	if (e0 == null)
     	{
     		return notFound("No event with id "+id);
     	}
+    	e.eventId = id;
 		JPA.em().merge(e);
 		return ok(Json.toJson(e));
     }
