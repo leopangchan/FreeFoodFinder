@@ -42,29 +42,23 @@ class HttpRequest extends AsyncTask<HttpCall, String, String>
         try
         {
             HttpCall httpCall = params[0];
-            String dataParams = "";
-            boolean hasDataFromCaller = httpCall.getParams() != null;
             URL url;
             OutputStream os;
             BufferedWriter writer;
             int responseCode;
 
-            if(hasDataFromCaller)/*if no data is passed from the caller*/
-            {
-                dataParams = getDataString(httpCall.getParams(), httpCall.getMethodType());
-            }
-
-            url = new URL(httpCall.getMethodType() == HttpCall.GET ? httpCall.getUrl() + dataParams : httpCall.getUrl());
+            url = new URL(httpCall.getUrl());
             urlConnection = (HttpURLConnection) url.openConnection();
-            urlConnection.setRequestMethod(httpCall.getMethodType() == HttpCall.GET ? "GET":"POST");
+            urlConnection.setRequestMethod(HttpCall.methodToStr(httpCall.getMethodType()));
             urlConnection.setReadTimeout(10000 /* milliseconds */);
             urlConnection.setConnectTimeout(15000 /* milliseconds */);
 
-            if(hasDataFromCaller && httpCall.getMethodType() == HttpCall.POST)
+            if(httpCall.getBody() != null && httpCall.getMethodType() != HttpCall.GET)
             {
+                urlConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
                 os = urlConnection.getOutputStream();
                 writer = new BufferedWriter(new OutputStreamWriter(os, UTF_8));
-                writer.append(dataParams);
+                writer.append(httpCall.getBody().toString());
                 writer.flush();
                 writer.close();
                 os.close();

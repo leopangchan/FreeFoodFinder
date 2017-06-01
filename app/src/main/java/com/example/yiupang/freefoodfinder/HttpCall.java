@@ -1,5 +1,7 @@
 package com.example.yiupang.freefoodfinder;
 
+import com.fasterxml.jackson.databind.JsonNode;
+
 import java.util.HashMap;
 
 /**
@@ -11,10 +13,29 @@ class HttpCall
 {
     static final int GET = 1;
     static final int POST = 2;
+    static final int PUT = 3;
+    static final int DELETE = 4;
+
+    public static String methodToStr(int method)
+    {
+        switch (method)
+        {
+            case GET:
+                return "GET";
+            case POST:
+                return "POST";
+            case PUT:
+                return "PUT";
+            case DELETE:
+                return "DELETE";
+            default:
+                throw new IllegalArgumentException("Invalid method code");
+        }
+    }
 
     private String url;
     private int methodType;
-    private HashMap<String, String> params;
+    private JsonNode body;
 
     String getUrl() {
         return url;
@@ -32,11 +53,11 @@ class HttpCall
         this.methodType = methodType;
     }
 
-    HashMap<String, String> getParams() {
-        return params;
+    JsonNode getBody() {
+        return body;
     }
 
-    public void setParams(HashMap<String, String> params) {
-        this.params = params;
+    public void setBody(JsonNode params) {
+        this.body = params;
     }
 }
