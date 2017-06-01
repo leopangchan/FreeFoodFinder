@@ -1,6 +1,8 @@
 package com.example.yiupang.freefoodfinder;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 
 import java.util.HashMap;
 
@@ -15,6 +17,12 @@ class HttpCall
     static final int POST = 2;
     static final int PUT = 3;
     static final int DELETE = 4;
+
+    private static ObjectMapper mapper;
+
+    static {
+        mapper = new ObjectMapper();
+    }
 
     public static String methodToStr(int method)
     {
@@ -59,5 +67,9 @@ class HttpCall
 
     public void setBody(JsonNode params) {
         this.body = params;
+    }
+
+    public void setBody(Object params) {
+        this.body = mapper.valueToTree(params);
     }
 }
