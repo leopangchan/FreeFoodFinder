@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">FreeFoodFinder</string>
     <string name="action_settings">Settings</string>
-    <string name="facebook_app_id">169855136874779</string>
+    <string name="facebook_app_id">1363372700411977</string>
 
     <!-- Titles for the button bar -->
     <string name="about_us">About Us</string>
