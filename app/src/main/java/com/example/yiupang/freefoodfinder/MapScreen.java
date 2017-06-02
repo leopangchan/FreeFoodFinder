@@ -19,7 +19,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
  *
  *
  */
-
 public class MapScreen extends android.support.v4.app.Fragment implements OnMapReadyCallback
 {
     @Override
@@ -31,14 +30,6 @@ public class MapScreen extends android.support.v4.app.Fragment implements OnMapR
         mapFragment.getMapAsync(this);
         return view;
     }
-
-    //CODE SMELL: remove comment block
-    /*    @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.map_screen);
-    }*/
 
     @Override
     public void onMapReady(GoogleMap map)
