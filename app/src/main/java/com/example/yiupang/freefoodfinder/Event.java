@@ -7,9 +7,12 @@ class Event
     private long eventId;
     private long userId;
     private String name;
-    private Date time;
+    private Date date_time;
+    private String date;
+    private String time;
     private String foodType;
     private String description;
+    private String place;
     private double lat;
     private double lng;
 
@@ -34,8 +37,8 @@ class Event
     public long getUserId(){ return userId; }
     public void setUserId(long id){ userId = id; }
 
-    public Date getTime(){ return time; }
-    public void setTime(Date d){ time = d; }
+    public Date getDateTime(){ return date_time; }
+    public void setDateTime(Date d){ date_time = d; }
 
     public boolean setName(String name) {
         if (name.length() > 3 && name.length() < 31) {
@@ -90,6 +93,15 @@ class Event
 
     public String getDescription(){return this.description;}
     public void setDescription(String desc){description = desc;}
+
+    public String getTime(){return this.time;}
+    public void setTime(String time){this.time = time;}
+
+    public String getDate(){return this.date;}
+    public void setDate(String date){this.date = date;}
+
+    public String getPlace(){return this.place;}
+    public void setPlace(String place){this.place = place;}
 
     @Override
     public String toString(){

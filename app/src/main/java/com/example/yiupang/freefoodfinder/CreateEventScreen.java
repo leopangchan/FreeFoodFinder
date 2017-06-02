@@ -26,7 +26,7 @@ public class CreateEventScreen extends Fragment{
     public View onCreateView(LayoutInflater inflater,  ViewGroup container, Bundle savedInstanceState)
     {
         View view = inflater.inflate(R.layout.create_event, container, false);
-        //Event newEvent = new Event();
+        final Event newEvent = new Event();
 
         /* EditText editText = (EditText) view.findViewById(R.id.box1);
         editText.setOnEditorActionListener(new EditText.OnEditorActionListener() {
@@ -41,6 +41,36 @@ public class CreateEventScreen extends Fragment{
 
         //Button button = (Button) view.findViewById(R.id.button_create);
         //onClickListener(view);
+
+        Button button = (Button) view.findViewById(R.id.button_create);
+        final EditText titleEdit = (EditText)view.findViewById(R.id.titletext);
+        final EditText dateEdit = (EditText)view.findViewById(R.id.datetext);
+        final EditText timeEdit = (EditText)view.findViewById(R.id.timetext);
+        final EditText placeEdit = (EditText)view.findViewById(R.id.placetext);
+        final EditText foodEdit = (EditText)view.findViewById(R.id.foodtext);
+        final EditText descEdit = (EditText)view.findViewById(R.id.descriptiontext);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                String title = titleEdit.getText().toString();
+                String date = dateEdit.getText().toString();
+                String time = timeEdit.getText().toString();
+                String place = placeEdit.getText().toString();
+                String food = foodEdit.getText().toString();
+                String desc = descEdit.getText().toString();
+
+                newEvent.setName(title);
+                //newEvent.setTime(null);
+                newEvent.setPlace(place);
+                //newEvent.setLatitude(0);
+                //newEvent.setLongitude(0);
+                newEvent.setDate(date);
+                newEvent.setTime(time);
+                newEvent.setFoodType(food);
+                newEvent.setDescription(desc);
+            }
+        });
 
         return view;
     }
