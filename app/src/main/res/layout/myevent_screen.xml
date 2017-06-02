@@ -4,27 +4,56 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<TextView android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:text="My Events"
-    android:typeface="serif"
-    android:textStyle="bold"
-    android:textSize="30dp">
+    <TextView android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="My Events"
+        android:typeface="serif"
+        android:textStyle="bold"
+        android:textSize="30dp">
 
-</TextView>
+    </TextView>
 
-<ListView
-    android:layout_width="fill_parent"
-    android:layout_height="0dp"
-    android:layout_weight="0.5"
-    android:background="#fdd"
-    android:id="@+id/myevents_list"/>
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.08"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        android:text="Create Event"
+        android:gravity="center_horizontal|bottom"
+        android:background="#FF267F00"
+        android:id="@+id/create_event_button"/>
 
-<ListView
-    android:layout_width="fill_parent"
-    android:layout_height="0dp"
-    android:layout_weight="0.5"
-    android:background="#dfd"
-    android:id="@+id/favevents_list"/>
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.05"
+        android:textSize="20sp"
+        android:textStyle="bold|italic"
+        android:text="My Events"
+        android:gravity="center_horizontal|bottom"
+        android:background="#f00"/>
+
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.42"
+        android:id="@+id/myevents_list"/>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.05"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="Favorited Events"
+        android:gravity="center_horizontal|bottom"
+        android:background="#f00"/>
+
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.42"
+        android:id="@+id/favevents_list"/>
 
 </LinearLayout>
