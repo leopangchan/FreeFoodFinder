@@ -12,12 +12,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Button;
 import android.support.v4.app.Fragment;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CreateEventScreen extends Fragment{
 
@@ -69,6 +71,20 @@ public class CreateEventScreen extends Fragment{
                 newEvent.setTime(time);
                 newEvent.setFoodType(food);
                 newEvent.setDescription(desc);
+
+                HttpCall httpr = new HttpCall();
+                httpr.setMethodType(HttpCall.PUT);
+                httpr.setBody(newEvent);
+                httpr.setUrl("https://free-food-finder.herokuapp.com/events");
+                new HttpRequest(){
+                    @Override
+                    public void onResponse(List<Event> response)
+                    {
+                        Intent details = new Intent(getContext(), EventsScreen.class);
+                        startActivity(details);
+                    }
+                }.execute(httpr);
+
             }
         });
 
