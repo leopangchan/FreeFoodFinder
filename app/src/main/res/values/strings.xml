@@ -15,4 +15,6 @@
     <string name="food_type">Food type: </string>
     <string name="description">Description: </string>
     <string name="host">Host </string>
+
+    <string name="home">Home</string>
 </resources>
