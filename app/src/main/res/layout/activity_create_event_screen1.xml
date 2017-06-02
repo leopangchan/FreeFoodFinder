@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.yiupang.freefoodfinder.CreateEventScreen1">
+
+    <TextView
+        android:id = "@+id/creatorTitle"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="Creator:"
+        android:layout_column="0"
+        android:layout_row="0"/>
+
+    <TextView
+        android:id = "@+id/titleTitle"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="Title:"
+        android:layout_column="0"
+        android:layout_row="1"/>
+
+    <TextView
+        android:id="@+id/dateTitle"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="Date:"
+        android:ems="10"
+        android:layout_column="0"
+        android:layout_row="2"
+        />
+
+    <TextView
+        android:id="@+id/timeTitle"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="Time:"
+        android:layout_column="0"
+        android:layout_row="3" />
+
+    <TextView
+        android:id="@+id/placeTitle"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="Place:"
+        android:layout_column="0"
+        android:layout_row="4" />
+
+    <TextView
+        android:id="@+id/foodTitle"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="Food:"
+        android:layout_column="0"
+        android:layout_row="5" />
+
+    <TextView
+        android:id="@+id/descTitle"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="Description:"
+        android:layout_column="0"
+        android:layout_row="6" />
+
+    <EditText
+        android:id="@+id/creatortext"
+        android:layout_width="255dp"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_row="0"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/titletext"
+        android:layout_width="255dp"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_row="1"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/datetext"
+        android:layout_width="255dp"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_row="2"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/timetext"
+        android:layout_width="255dp"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_row="3"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/placetext"
+        android:layout_width="255dp"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_row="4"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/foodtext"
+        android:layout_width="255dp"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_row="5"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/descriptiontext"
+        android:layout_width="255dp"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_row="6"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/button_create"
+        android:layout_width="wrap_content"
+        android:layout_height= "wrap_content"
+        android:text = "Create Event" />
+
+</GridLayout>
