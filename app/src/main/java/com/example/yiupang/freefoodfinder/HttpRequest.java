@@ -62,7 +62,7 @@ class HttpRequest extends AsyncTask<HttpCall, String, String>
 
             /*Handle the response*/
             responseCode = urlConnection.getResponseCode();
-            if (responseCode >= 300)
+            if (responseCode < 300)
             {
                 ObjectMapper mapper = new ObjectMapper();
                 response = mapper.readTree(urlConnection.getInputStream());

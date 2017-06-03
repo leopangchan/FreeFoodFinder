@@ -55,7 +55,7 @@ public class CreateEventScreen1 extends AppCompatActivity {
                 httpr.setUrl("https://free-food-finder.herokuapp.com/events");
                 new HttpRequest(){
                     @Override
-                    public void onResponse(List<Event> response)
+                    public void onResponse(Object response, int code)
                     {
                         finishActivity(0);
                     }

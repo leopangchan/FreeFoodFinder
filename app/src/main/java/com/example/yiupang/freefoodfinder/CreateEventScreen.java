@@ -78,7 +78,7 @@ public class CreateEventScreen extends Fragment{
                 httpr.setUrl("https://free-food-finder.herokuapp.com/events");
                 new HttpRequest(){
                     @Override
-                    public void onResponse(List<Event> response)
+                    public void onResponse(Object response, int code)
                     {
                         Intent details = new Intent(getContext(), EventsScreen.class);
                         startActivity(details);
