@@ -3,7 +3,6 @@ package com.example.yiupang.freefoodfinder;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +11,12 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.type.TypeFactory;
+
+import java.io.IOException;
+import java.net.HttpURLConnection;
 import java.util.List;
 
 /**
@@ -34,12 +39,28 @@ public class EventsScreen extends Fragment
         httpCall.setUrl("http://free-food-finder.herokuapp.com/events");
         new HttpRequest(){
             @Override
-            public void onResponse(List<Event> response)
+            public void onResponse(JsonNode response, int code)
             {
-                super.onResponse(response);
-                ListView listView = (ListView) view.findViewById(R.id.events_screen);
-                listView.setAdapter(new EventArrayAdapter(view.getContext(), R.layout.events_list_item, response));
-                setItemListener(listView);
+                super.onResponse(response, code);
+                if (code != HttpURLConnection.HTTP_OK)
+                {
+                    /* Error Handling */
+                }
+                else {
+                    ObjectMapper mapper = new ObjectMapper();
+                    TypeFactory typeFactory = mapper.getTypeFactory();
+                    List<Event> events = null;/*Parse to Event Objs*/
+                    try {
+                        events = mapper.reader(
+                                typeFactory.constructCollectionType(List.class, Event.class)
+                        ).readValue(response);
+                    } catch (IOException e) {
+                        /*handle error*/
+                    }
+                    ListView listView = (ListView) view.findViewById(R.id.events_screen);
+                    listView.setAdapter(new EventArrayAdapter(view.getContext(), R.layout.events_list_item, events));
+                    setItemListener(listView);
+                }
             }
         }.execute(httpCall);
 

@@ -2,13 +2,10 @@ package com.example.yiupang.freefoodfinder;
 
 import android.os.AsyncTask;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.type.TypeFactory;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
@@ -16,8 +13,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -28,6 +23,9 @@ class HttpRequest extends AsyncTask<HttpCall, String, String>
 {
     private static final String UTF_8 = "UTF-8";
 
+    private JsonNode response;
+    private int responseCode;
+
     /**
      * Handle the input and result of the HTTP call
      *
@@ -37,7 +35,6 @@ class HttpRequest extends AsyncTask<HttpCall, String, String>
     protected String doInBackground(HttpCall... params)
     {
         HttpURLConnection urlConnection = null;
-        StringBuilder response = new StringBuilder();
 
         try
         {
@@ -45,7 +42,6 @@ class HttpRequest extends AsyncTask<HttpCall, String, String>
             URL url;
             OutputStream os;
             BufferedWriter writer;
-            int responseCode;
 
             url = new URL(httpCall.getUrl());
             urlConnection = (HttpURLConnection) url.openConnection();
@@ -66,15 +62,8 @@ class HttpRequest extends AsyncTask<HttpCall, String, String>
 
             /*Handle the response*/
             responseCode = urlConnection.getResponseCode();
-            if(responseCode == HttpURLConnection.HTTP_OK)
-            {
-                String line;
-                BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-                while ((line = br.readLine()) != null)
-                {
-                    response.append(line);
-                }
-            }
+            ObjectMapper mapper = new ObjectMapper();
+            response = mapper.readTree(urlConnection.getInputStream());
         }
         catch (Exception e)
         {
@@ -99,25 +88,13 @@ class HttpRequest extends AsyncTask<HttpCall, String, String>
     protected void onPostExecute(String s)
     {
         super.onPostExecute(s);
-        try
-        {
-            ObjectMapper mapper = new ObjectMapper();
-            TypeFactory typeFactory = mapper.getTypeFactory();
-            List<Event> events = mapper.readValue(s, typeFactory.constructCollectionType(List.class, Event.class));/*Parse to Event Objs*/
-            onResponse(events);
-        }
-        catch (IOException e)
-        {
-            List<Event> eventsError = new LinkedList<>();
-            eventsError.add(new Event("Error", "Error", "Error"));
-            onResponse(eventsError);
-        }
+        onResponse(response, responseCode);
     }
 
     /**
      * It needs to be overwritten by the caller to handle the response
     * */
-    public void onResponse(List<Event> response)
+    public void onResponse(JsonNode response, int code)
     {
 
     }
