@@ -26,6 +26,8 @@ public class EventDetailsScreen1 extends AppCompatActivity
        // Event selectedEvent = (Event)getIntent().getSerializableExtra("selectedEvent");
 
         String selectedEventName = (String)getIntent().getExtras().getSerializable("selectedEventName");
+        String selectedEventTime = (String)getIntent().getExtras().getSerializable("selectedEventTime");
+        String selectedEventPlace = (String)getIntent().getExtras().getSerializable("selectedEventPlace");
         String selectedEventDesc = (String)getIntent().getExtras().getSerializable("selectedEventDesc");
         String selectedEventFoodType = (String)getIntent().getExtras().getSerializable("selectedEventFoodType");
 
@@ -33,11 +35,19 @@ public class EventDetailsScreen1 extends AppCompatActivity
         TextView nameText = (TextView) findViewById(R.id.nameText);
         nameText.setText(selectedEventName);
 
+        TextView timeText = (TextView) findViewById(R.id.timeText);
+        timeText.setText(selectedEventTime);
+
+        TextView placeText = (TextView) findViewById(R.id.placeText);
+        placeText.setText(selectedEventPlace);
+
         TextView foodText = (TextView) findViewById(R.id.foodText);
         foodText.setText(selectedEventFoodType);
 
         TextView descText = (TextView) findViewById( R.id.descText);
         descText.setText(selectedEventDesc);
+
+
 
        /* Log.d("NAME", selectedEventName);
         Log.d("DESCRIPTION", selectedEventDesc);

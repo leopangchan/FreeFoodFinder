@@ -54,14 +54,9 @@ public class EventsScreen extends Fragment
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id)
             {
                 Event selectedEvent = (Event) adapterView.getAdapter().getItem(position);
-               /* Log.d("tag", selectedEvent.getName());
-                Log.d("tag", selectedEvent.getFoodType());
-                Log.d("tag", selectedEvent.getDescription()); */
 
                 switchActivity(selectedEvent);
 
-               /* EventDetailsScreen es = new EventDetailsScreen();
-                getFragmentManager().beginTransaction().replace(R.id.frame, es).commit();*/
             }
         });
     }
@@ -71,6 +66,8 @@ public class EventsScreen extends Fragment
         Intent details = new Intent(getContext(), EventDetailsScreen1.class);
 
         details.putExtra("selectedEventName", selectedEvent.getName());
+        details.putExtra("selectedEventTime", selectedEvent.getTime());
+        details.putExtra("selectedEventPlace", selectedEvent.getPlace());
         details.putExtra("selectedEventDesc", selectedEvent.getDescription());
         details.putExtra("selectedEventFoodType", selectedEvent.getFoodType());
 
