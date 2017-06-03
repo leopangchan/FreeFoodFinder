@@ -39,7 +39,7 @@ public class EventsScreen extends Fragment
         httpCall.setUrl("http://free-food-finder.herokuapp.com/events");
         new HttpRequest(){
             @Override
-            public void onResponse(JsonNode response, int code)
+            public void onResponse(Object response, int code)
             {
                 super.onResponse(response, code);
                 if (code != HttpURLConnection.HTTP_OK)
@@ -53,7 +53,7 @@ public class EventsScreen extends Fragment
                     try {
                         events = mapper.reader(
                                 typeFactory.constructCollectionType(List.class, Event.class)
-                        ).readValue(response);
+                        ).readValue((JsonNode) response);
                     } catch (IOException e) {
                         /*handle error*/
                     }

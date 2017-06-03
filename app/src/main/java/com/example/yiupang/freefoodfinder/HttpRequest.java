@@ -23,7 +23,7 @@ class HttpRequest extends AsyncTask<HttpCall, String, String>
 {
     private static final String UTF_8 = "UTF-8";
 
-    private JsonNode response;
+    private Object response;
     private int responseCode;
 
     /**
@@ -62,8 +62,15 @@ class HttpRequest extends AsyncTask<HttpCall, String, String>
 
             /*Handle the response*/
             responseCode = urlConnection.getResponseCode();
-            ObjectMapper mapper = new ObjectMapper();
-            response = mapper.readTree(urlConnection.getInputStream());
+            if (responseCode >= 300)
+            {
+                ObjectMapper mapper = new ObjectMapper();
+                response = mapper.readTree(urlConnection.getInputStream());
+            }
+            else
+            {
+                response = urlConnection.getResponseMessage();
+            }
         }
         catch (Exception e)
         {
@@ -94,7 +101,7 @@ class HttpRequest extends AsyncTask<HttpCall, String, String>
     /**
      * It needs to be overwritten by the caller to handle the response
     * */
-    public void onResponse(JsonNode response, int code)
+    public void onResponse(Object response, int code)
     {
 
     }
