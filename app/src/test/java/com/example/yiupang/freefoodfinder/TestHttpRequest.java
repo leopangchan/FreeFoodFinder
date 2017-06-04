@@ -1,10 +1,7 @@
 package com.example.yiupang.freefoodfinder;
 
-import android.widget.ListView;
-
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
-import org.junit.Test;
 
 import java.util.List;
 
