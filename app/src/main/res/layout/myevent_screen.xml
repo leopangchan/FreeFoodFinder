@@ -16,7 +16,7 @@
     <Button
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.08"
+        android:layout_weight="0.10"
         android:textSize="20sp"
         android:textStyle="italic"
         android:text="Create Event"
@@ -27,33 +27,33 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.05"
+        android:layout_weight="0.10"
         android:textSize="20sp"
-        android:textStyle="bold|italic"
+        android:textStyle="bold"
         android:text="My Events"
-        android:gravity="center_horizontal|bottom"
+        android:gravity="center"
         android:background="#f00"/>
 
     <ListView
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.42"
+        android:layout_weight="0.35"
         android:id="@+id/myevents_list"/>
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.05"
+        android:layout_weight="0.10"
         android:textSize="20sp"
         android:textStyle="bold"
         android:text="Favorited Events"
-        android:gravity="center_horizontal|bottom"
+        android:gravity="center"
         android:background="#f00"/>
 
     <ListView
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.42"
+        android:layout_weight="0.35"
         android:id="@+id/favevents_list"/>
 
 </LinearLayout>
