@@ -15,19 +15,22 @@ import java.util.List;
 
 public class CreateEventScreen1 extends AppCompatActivity {
 
-
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    @Override
+    public void onCreate(Bundle savedInstanceState)
     {
-        View view = inflater.inflate(R.layout.create_event, container, false);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_create_event_screen1);
+        // View view = inflater.inflate(R.layout.create_event, container, false);
+        // View view = inflater.inflate(R.layout.activity_create_event_screen1, container, false);
         final Event newEvent = new Event();
 
-        Button button = (Button) view.findViewById(R.id.button_create);
-        final EditText titleEdit = (EditText)view.findViewById(R.id.titletext);
-        final EditText dateEdit = (EditText)view.findViewById(R.id.datetext);
-        final EditText timeEdit = (EditText)view.findViewById(R.id.timetext);
-        final EditText placeEdit = (EditText)view.findViewById(R.id.placetext);
-        final EditText foodEdit = (EditText)view.findViewById(R.id.foodtext);
-        final EditText descEdit = (EditText)view.findViewById(R.id.descriptiontext);
+        Button button = (Button) findViewById(R.id.button_create);
+        final EditText titleEdit = (EditText) findViewById(R.id.titletext);
+        final EditText dateEdit = (EditText) findViewById(R.id.datetext);
+        final EditText timeEdit = (EditText) findViewById(R.id.timetext);
+        final EditText placeEdit = (EditText) findViewById(R.id.placetext);
+        final EditText foodEdit = (EditText) findViewById(R.id.foodtext);
+        final EditText descEdit = (EditText) findViewById(R.id.descriptiontext);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,8 +66,6 @@ public class CreateEventScreen1 extends AppCompatActivity {
 
             }
         });
-
-        return view;
     }
 
 }

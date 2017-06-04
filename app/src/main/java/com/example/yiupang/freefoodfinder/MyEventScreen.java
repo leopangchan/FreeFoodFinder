@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -47,6 +48,22 @@ public class MyEventScreen extends android.support.v4.app.Fragment
         favEventsListView.setAdapter(adapter);
         setItemListener(favEventsListView);
 
+        final Button button = (Button) view.findViewById(R.id.create_event_button);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent details = new Intent(getContext(), CreateEventScreen1.class);
+                /* Intent details = new Intent(getContext(), EventDetailsScreen1.class);
+
+                details.putExtra("selectedEventName", "name");
+                details.putExtra("selectedEventTime", "time");
+                details.putExtra("selectedEventPlace", "place");
+                details.putExtra("selectedEventDesc", "desc");
+                details.putExtra("selectedEventFoodType", "type"); */
+
+                startActivity(details);
+            }
+        });
+
         return view;
     }
 
@@ -60,7 +77,6 @@ public class MyEventScreen extends android.support.v4.app.Fragment
                 Event selectedEvent = (Event) adapterView.getAdapter().getItem(position);
 
                 switchActivity(selectedEvent);
-
             }
         });
     }
