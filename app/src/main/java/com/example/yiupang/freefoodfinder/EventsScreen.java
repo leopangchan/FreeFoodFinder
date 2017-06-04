@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,12 +56,15 @@ public class EventsScreen extends Fragment
                         events = mapper.reader(
                                 typeFactory.constructCollectionType(List.class, Event.class)
                         ).readValue((JsonNode) response);
+                        ListView listView = (ListView) view.findViewById(R.id.events_screen);
+
+                        listView.setAdapter(new EventArrayAdapter(view.getContext(), R.layout.events_list_item, events));
+                        setItemListener(listView);
                     } catch (IOException e) {
                         /*handle error*/
+                        Log.d("size:  ", e +"");
                     }
-                    ListView listView = (ListView) view.findViewById(R.id.events_screen);
-                    listView.setAdapter(new EventArrayAdapter(view.getContext(), R.layout.events_list_item, events));
-                    setItemListener(listView);
+
                 }
             }
         }.execute(httpCall);
@@ -75,9 +80,7 @@ public class EventsScreen extends Fragment
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id)
             {
                 Event selectedEvent = (Event) adapterView.getAdapter().getItem(position);
-
                 switchActivity(selectedEvent);
-
             }
         });
     }

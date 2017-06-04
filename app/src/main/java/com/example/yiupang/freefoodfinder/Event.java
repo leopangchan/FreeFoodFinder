@@ -22,9 +22,9 @@ class Event
 
     Event(String name, String foodType, String description)
     {
-        this.name = name;
-        this.foodType = foodType;
-        this.description = description;
+        setName(name);
+        setFoodType(foodType);
+        setDescription(description);
     }
 
     public String getName() {
