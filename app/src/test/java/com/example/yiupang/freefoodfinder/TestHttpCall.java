@@ -7,7 +7,7 @@ import org.junit.Test;
  * Created by yiupang on 6/1/2017.
  *
  */
-class TestHttpCall
+public class TestHttpCall
 {
 
 }
