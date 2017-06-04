@@ -67,7 +67,7 @@ class Event
         return lat;
     }
 
-    public boolean setLatitude(double latitude){
+    public boolean setLat(double latitude){
         if(latitude >= -90.0 && latitude <= 90.0){
             this.lat = latitude;
             return true;
@@ -81,7 +81,7 @@ class Event
         return lng;
     }
 
-    public boolean setLongitude(double longitude){
+    public boolean setLng(double longitude){
         if(longitude >= -180.0 && longitude <= 180.0){
             this.lng = longitude;
             return true;

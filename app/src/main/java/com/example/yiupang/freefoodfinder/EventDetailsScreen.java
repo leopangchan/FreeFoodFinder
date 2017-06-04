@@ -1,27 +1,19 @@
 package com.example.yiupang.freefoodfinder;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListView;
 import android.widget.TextView;
-
-import java.io.Serializable;
 
 import android.support.v7.app.AppCompatActivity;
 
 
-public class EventDetailsScreen1 extends AppCompatActivity
+public class EventDetailsScreen extends AppCompatActivity
 {
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_event_details_screen1);
+        setContentView(R.layout.activity_event_details_screen);
 
        // Event selectedEvent = (Event)getIntent().getSerializableExtra("selectedEvent");
 

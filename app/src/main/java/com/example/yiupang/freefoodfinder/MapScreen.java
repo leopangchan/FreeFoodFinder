@@ -35,6 +35,7 @@ public class MapScreen extends android.support.v4.app.Fragment implements OnMapR
     ArrayList<Double> lngs = new ArrayList<Double>();
     ArrayList<String> titles = new ArrayList<String>();
     ArrayList<String> descrips = new ArrayList<String>();
+    GoogleMap map;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
@@ -66,6 +67,8 @@ public class MapScreen extends android.support.v4.app.Fragment implements OnMapR
                                 typeFactory.constructCollectionType(List.class, Event.class)
                         ).readValue((JsonNode) response);
 
+                        Log.d("EVENTS NUM", "Events #: " + events.size());
+
                         for(int i = 0; i < events.size(); i++)
                         {
                             Event currEvent = events.get(i);
@@ -79,6 +82,10 @@ public class MapScreen extends android.support.v4.app.Fragment implements OnMapR
                             lngs.add(lng);
                             titles.add(title);
                             descrips.add(desc);
+
+                            LatLng currPos = new LatLng(lats.get(i), lngs.get(i));
+
+                            map.addMarker(new MarkerOptions().position(currPos).title(titles.get(i)).snippet(descrips.get(i)));
 
                         }
 
@@ -98,6 +105,7 @@ public class MapScreen extends android.support.v4.app.Fragment implements OnMapR
     @Override
     public void onMapReady(GoogleMap map)
     {
+        this.map = map;
 
         /*
 
@@ -112,12 +120,17 @@ public class MapScreen extends android.support.v4.app.Fragment implements OnMapR
 
         */
 
+        LatLng slo = new LatLng(35.2827778, -120.6586111);
+        //map.addMarker(new MarkerOptions().position(slo).title("Downtown").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)).snippet("Downtown of slo"));
+
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(slo, 12.0f));
+
+        Log.d("LATS NUM", "Events #: " + lats.size());
+/*
         for(int i = 0; i < lats.size(); i++)
         {
-            LatLng currPos = new LatLng(lats.get(i), lngs.get(i));
 
-            map.addMarker(new MarkerOptions().position(currPos).title(titles.get(i)).snippet(descrips.get(i)));
 
-        }
+        }*/
     }
 }

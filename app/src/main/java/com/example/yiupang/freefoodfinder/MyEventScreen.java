@@ -1,7 +1,6 @@
 package com.example.yiupang.freefoodfinder;
 
 //CODE SMELL: unused import
-import android.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -52,7 +51,7 @@ public class MyEventScreen extends android.support.v4.app.Fragment
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent details = new Intent(getContext(), CreateEventScreen1.class);
-                /* Intent details = new Intent(getContext(), EventDetailsScreen1.class);
+                /* Intent details = new Intent(getContext(), EventDetailsScreen.class);
 
                 details.putExtra("selectedEventName", "name");
                 details.putExtra("selectedEventTime", "time");
@@ -83,7 +82,7 @@ public class MyEventScreen extends android.support.v4.app.Fragment
 
     public void switchActivity(Event selectedEvent)
     {
-        Intent details = new Intent(getContext(), EventDetailsScreen1.class);
+        Intent details = new Intent(getContext(), EventDetailsScreen.class);
 
         details.putExtra("selectedEventName", selectedEvent.getName());
         details.putExtra("selectedEventTime", selectedEvent.getTime());

@@ -58,7 +58,7 @@
 
         <!-- Event Details Activity -->
         <activity
-            android:name=".EventDetailsScreen1"
+            android:name=".EventDetailsScreen"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
