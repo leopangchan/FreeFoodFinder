@@ -7,7 +7,7 @@ class Event
     private long eventId;
     private long userId;
     private String name;
-    private Date date_time;
+    private Date dateTime;
     private String date;
     private String time;
     private String foodType;
@@ -37,8 +37,8 @@ class Event
     public long getUserId(){ return userId; }
     public void setUserId(long id){ userId = id; }
 
-    public Date getDateTime(){ return date_time; }
-    public void setDateTime(Date d){ date_time = d; }
+    public Date getDateTime(){ return dateTime; }
+    public void setDateTime(Date d){ dateTime = d; }
 
     public boolean setName(String name) {
         if (name.length() > 3 && name.length() < 31) {
