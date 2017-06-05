@@ -17,4 +17,15 @@
     <string name="host">Host </string>
 
     <string name="home">Home</string>
+
+    <!--Strings on create event screen-->
+    <string name="createor">Creator: </string>
+    <string name="title">Title: </string>
+    <string name="date">Date: </string>
+    <string name="time">Time: </string>
+    <string name="place">Place: </string>
+    <string name="food">Food: </string>
+    <string name="create_event">Create Event</string>
+
+
 </resources>

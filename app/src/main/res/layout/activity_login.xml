@@ -42,6 +42,7 @@
         android:adjustViewBounds="true"
         android:cropToPadding="false"
         android:src="@drawable/loginlogo"
+         android:contentDescription="@string/events"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 

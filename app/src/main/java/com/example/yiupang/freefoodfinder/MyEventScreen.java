@@ -1,7 +1,5 @@
 package com.example.yiupang.freefoodfinder;
 
-//CODE SMELL: unused import
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -18,7 +16,6 @@ import java.util.ArrayList;
  * Created by yiupang on 5/6/2017.
  *
  */
-
 public class MyEventScreen extends android.support.v4.app.Fragment
 {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
@@ -51,7 +48,7 @@ public class MyEventScreen extends android.support.v4.app.Fragment
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent details = new Intent(getContext(), CreateEventScreen1.class);
-                /* Intent details = new Intent(getContext(), EventDetailsScreen.class);
+                /* Intent details = new Intent(getContext(), EventDetailsScreen1.class);
 
                 details.putExtra("selectedEventName", "name");
                 details.putExtra("selectedEventTime", "time");
@@ -82,7 +79,7 @@ public class MyEventScreen extends android.support.v4.app.Fragment
 
     public void switchActivity(Event selectedEvent)
     {
-        Intent details = new Intent(getContext(), EventDetailsScreen.class);
+        Intent details = new Intent(getContext(), EventDetailsScreen1.class);
 
         details.putExtra("selectedEventName", selectedEvent.getName());
         details.putExtra("selectedEventTime", selectedEvent.getTime());

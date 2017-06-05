@@ -2,9 +2,6 @@ package com.example.yiupang.freefoodfinder;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
-
-import java.util.HashMap;
 
 /**
  * Created by yiupang on 5/27/2017.

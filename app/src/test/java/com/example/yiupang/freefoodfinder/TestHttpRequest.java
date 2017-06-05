@@ -1,16 +1,34 @@
 package com.example.yiupang.freefoodfinder;
 
+import org.junit.Before;
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
 import static org.junit.Assert.assertEquals;
-
-import java.util.List;
-
 /**
  * Created by yiupang on 6/1/2017.
  *
  */
 public class TestHttpRequest
 {
+    private EventsScreen eventsScreen;
+
+    @Mock
+    private HttpRequest httpRequest;
+
+    @Captor
+    private ArgumentCaptor<HttpRequest> httpRequestArgumentCaptor;
+
+    @Before
+    public void setUp()
+    {
+        MockitoAnnotations.initMocks(this);
+        eventsScreen = new EventsScreen();
+    }
+
     @Test
     public void testGetCall()
     {
