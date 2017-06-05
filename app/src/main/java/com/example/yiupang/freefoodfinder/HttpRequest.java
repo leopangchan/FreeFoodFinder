@@ -2,7 +2,6 @@ package com.example.yiupang.freefoodfinder;
 
 import android.os.AsyncTask;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.BufferedWriter;
@@ -12,7 +11,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -43,13 +41,13 @@ class HttpRequest extends AsyncTask<HttpCall, String, String>
             OutputStream os;
             BufferedWriter writer;
 
-            url = new URL(httpCall.getUrl());
+            url = new URL(httpCall.getUrl() + getDataString(httpCall.getQueryParams()));
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod(HttpCall.methodToStr(httpCall.getMethodType()));
             urlConnection.setReadTimeout(10000 /* milliseconds */);
             urlConnection.setConnectTimeout(15000 /* milliseconds */);
 
-            if(httpCall.getBody() != null && httpCall.getMethodType() != HttpCall.GET)
+            if (httpCall.getBody() != null && httpCall.getMethodType() != HttpCall.GET)
             {
                 urlConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
                 os = urlConnection.getOutputStream();
@@ -109,23 +107,21 @@ class HttpRequest extends AsyncTask<HttpCall, String, String>
     /**
      * Create the string for parameters in the URL based on the attributes and data passed by the caller
      * */
-    private String getDataString(HashMap<String, String> params, int methodType) throws UnsupportedEncodingException
+    private String getDataString(Map<String, String> params) throws UnsupportedEncodingException
     {
+        if (params == null)
+        {
+            return "";
+        }
         StringBuilder result = new StringBuilder();
         boolean isFirst = true;
         for(Map.Entry<String, String> entry : params.entrySet())
         {
-            if(isFirst)
-            {
-                isFirst = false;
-                if(methodType == HttpCall.GET)
-                    result.append("?");
-                else
-                    result.append("&");
-                result.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
-                result.append("=");
-                result.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
-            }
+            result.append(isFirst? "?":"&");
+            isFirst = false;
+            result.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
+            result.append("=");
+            result.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
         }
         return result.toString();
     }

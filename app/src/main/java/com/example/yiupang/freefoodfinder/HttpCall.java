@@ -3,6 +3,8 @@ package com.example.yiupang.freefoodfinder;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.util.Map;
+
 /**
  * Created by yiupang on 5/27/2017.
  *
@@ -41,24 +43,25 @@ class HttpCall
     private String url;
     private int methodType;
     private JsonNode body;
+    private Map<String, String> query;
 
-    String getUrl() {
+    public String getUrl() {
         return url;
     }
 
-    void setUrl(String url) {
+    public void setUrl(String url) {
         this.url = url;
     }
 
-    int getMethodType() {
+    public int getMethodType() {
         return methodType;
     }
 
-    void setMethodType(int methodType) {
+    public void setMethodType(int methodType) {
         this.methodType = methodType;
     }
 
-    JsonNode getBody() {
+    public JsonNode getBody() {
         return body;
     }
 
@@ -68,5 +71,13 @@ class HttpCall
 
     public void setBody(Object params) {
         this.body = mapper.valueToTree(params);
+    }
+
+    public Map<String, String> getQueryParams() {
+        return query;
+    }
+
+    public void setQueryParams(Map<String, String> query) {
+        this.query = query;
     }
 }
