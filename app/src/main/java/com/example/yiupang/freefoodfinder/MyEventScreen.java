@@ -79,7 +79,7 @@ public class MyEventScreen extends android.support.v4.app.Fragment
 
     public void switchActivity(Event selectedEvent)
     {
-        Intent details = new Intent(getContext(), EventDetailsScreen1.class);
+        Intent details = new Intent(getContext(), EventDetailsScreen.class);
 
         details.putExtra("selectedEventName", selectedEvent.getName());
         details.putExtra("selectedEventTime", selectedEvent.getTime());
