@@ -16,7 +16,6 @@ public class CreateEventScreen extends AppCompatActivity {
         final Event newEvent = new Event();
 
         Button button = (Button) findViewById(R.id.button_create);
-        //final EditText creatorEdit = (EditText) findViewById(R.id.creatortext);
         final EditText titleEdit = (EditText) findViewById(R.id.titletext);
         final EditText dateEdit = (EditText) findViewById(R.id.datetext);
         final EditText timeEdit = (EditText) findViewById(R.id.timetext);
@@ -28,7 +27,23 @@ public class CreateEventScreen extends AppCompatActivity {
             @Override
             public void onClick(View v){
 
-                //String creator = creatorEdit.getText().toString();
+                makeEvent();
+
+                HttpCall httpr = new HttpCall();
+                httpr.setMethodType(HttpCall.PUT);
+                httpr.setBody(newEvent);
+                httpr.setUrl("http://free-food-finder.herokuapp.com/events");
+                new HttpRequest(){
+                    @Override
+                    public void onResponse(Object response, int code)
+                    {
+                        finish();
+                    }
+                }.execute(httpr);
+
+            }
+
+            private void makeEvent(){
                 String title = titleEdit.getText().toString();
                 String date = dateEdit.getText().toString();
                 String time = timeEdit.getText().toString();
@@ -45,19 +60,6 @@ public class CreateEventScreen extends AppCompatActivity {
                 newEvent.setTime(time);
                 newEvent.setFoodType(food);
                 newEvent.setDescription(desc);
-
-                HttpCall httpr = new HttpCall();
-                httpr.setMethodType(HttpCall.PUT);
-                httpr.setBody(newEvent);
-                httpr.setUrl("http://free-food-finder.herokuapp.com/events");
-                new HttpRequest(){
-                    @Override
-                    public void onResponse(Object response, int code)
-                    {
-                        finish();
-                    }
-                }.execute(httpr);
-
             }
         });
     }
