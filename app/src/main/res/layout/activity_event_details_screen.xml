@@ -14,7 +14,7 @@
         android:typeface="serif"
         android:textStyle="bold"
         android:padding="20dp"
-        android:text="Creator:" />
+        android:text="Title:" />
 
     <TextView
         android:id="@+id/datelabel"
