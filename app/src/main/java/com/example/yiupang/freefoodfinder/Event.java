@@ -40,12 +40,8 @@ class Event
     public void setDateTime(Date d){ dateTime = d; }
 
     public boolean setName(String name) {
-        if (name.length() > 3 && name.length() < 31) {
-            this.name = name;
-            return true;
-        } else {
-            return false;
-        }
+        this.name = name;
+        return name.length() > 3 && name.length() < 31;
     }
 
     public String getFoodType() {
@@ -53,13 +49,8 @@ class Event
     }
 
     public boolean setFoodType(String foodType){
-        if(foodType.length() > 3 && foodType.length() <31) {
-            this.foodType = foodType;
-            return true;
-        }
-        else{
-            return false;
-        }
+        this.foodType = foodType;
+        return foodType.length() > 3 && foodType.length() <31;
     }
 
     public double getLat(){
