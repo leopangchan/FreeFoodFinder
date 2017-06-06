@@ -71,22 +71,7 @@ public class MapScreen extends android.support.v4.app.Fragment implements OnMapR
 
                         for(int i = 0; i < events.size(); i++)
                         {
-                            Event currEvent = events.get(i);
-
-                            double lat = currEvent.getLat();
-                            double lng = currEvent.getLng();
-                            String title = currEvent.getName();
-                            String desc = currEvent.getDescription();
-
-                            lats.add(lat);
-                            lngs.add(lng);
-                            titles.add(title);
-                            descrips.add(desc);
-
-                            LatLng currPos = new LatLng(lats.get(i), lngs.get(i));
-
-                            map.addMarker(new MarkerOptions().position(currPos).title(titles.get(i)).snippet(descrips.get(i)));
-
+                            dropPin(events, i);
                         }
 
                     } catch (IOException e) {
@@ -100,6 +85,28 @@ public class MapScreen extends android.support.v4.app.Fragment implements OnMapR
         }.execute(httpCall);
 
         return view;
+    }
+
+    public void dropPin(List<Event> events, int i)
+    {
+        Event currEvent = events.get(i);
+
+        double lat = currEvent.getLat();
+        double lng = currEvent.getLng();
+        String title = currEvent.getName();
+        String desc = currEvent.getDescription();
+
+        lats.add(lat);
+        lngs.add(lng);
+        titles.add(title);
+        descrips.add(desc);
+
+        LatLng currPos = new LatLng(lats.get(i), lngs.get(i));
+
+        map.addMarker(new MarkerOptions().position(currPos).title(titles.get(i)).snippet(descrips.get(i)));
+
+
+
     }
 
     @Override
