@@ -39,7 +39,7 @@ public class EventDetailsScreen extends AppCompatActivity
                 dayFormat.format(new Date(Long.parseLong(selectedEventTime))));
 
         TextView placeText = (TextView) findViewById(R.id.placeText);
-        placeText.setText(selectedEventPlace == null || selectedEventPlace.equals("") ?
+        placeText.setText(selectedEventPlace == null || "".equals(selectedEventPlace) ?
                 "TBA" : selectedEventPlace);
 
         TextView foodText = (TextView) findViewById(R.id.foodText);

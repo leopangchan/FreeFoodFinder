@@ -79,14 +79,14 @@ public class MapScreen extends android.support.v4.app.Fragment implements OnMapR
         double offset = 0.00005f;
         double lat = currEvent.getLat();
         double lng = currEvent.getLng();
-        while(markerLocations.containsKey(lat + lng + ""))
+        while(markerLocations.containsKey(Double.toString(lat + lng)))
         {
             lat += offset;
             lng += offset;
         }
         currEvent.setLat(lat);
         currEvent.setLng(lng);
-        markerLocations.put(currEvent.getLat() + currEvent.getLng() + "", "");
+        markerLocations.put(Double.toString(currEvent.getLat() + currEvent.getLng()), "");
 
         String title = currEvent.getName();
         String desc = currEvent.getDescription();
