@@ -16,6 +16,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.net.HttpURLConnection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -30,6 +31,7 @@ public class MapScreen extends android.support.v4.app.Fragment implements OnMapR
     ArrayList<Double> lngs = new ArrayList<>();
     ArrayList<String> titles = new ArrayList<>();
     ArrayList<String> descrips = new ArrayList<>();
+    HashMap<String, String> markerLocations = new HashMap<>();
     GoogleMap map;
 
     @Override
@@ -58,7 +60,10 @@ public class MapScreen extends android.support.v4.app.Fragment implements OnMapR
                     List<Event> events = Utility.parseFromJSONToEventObjs((JsonNode) response);
                     Log.d("EVENTS NUM", "Events #: " + events.size());
                     for(int i = 0; i < events.size(); i++)
+                    {
+
                         dropPin(events, i);
+                    }
                 }
             }
 
@@ -71,8 +76,18 @@ public class MapScreen extends android.support.v4.app.Fragment implements OnMapR
     {
         Event currEvent = events.get(i);
 
+        double offset = 0.00005f;
         double lat = currEvent.getLat();
         double lng = currEvent.getLng();
+        while(markerLocations.containsKey(lat + lng + ""))
+        {
+            lat += offset;
+            lng += offset;
+        }
+        currEvent.setLat(lat);
+        currEvent.setLng(lng);
+        markerLocations.put(currEvent.getLat() + currEvent.getLng() + "", "");
+
         String title = currEvent.getName();
         String desc = currEvent.getDescription();
 
@@ -84,7 +99,6 @@ public class MapScreen extends android.support.v4.app.Fragment implements OnMapR
         LatLng currPos = new LatLng(lats.get(i), lngs.get(i));
 
         map.addMarker(new MarkerOptions().position(currPos).title(titles.get(i)).snippet(descrips.get(i)));
-
     }
 
     @Override

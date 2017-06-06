@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,9 @@ public class CreateEventScreen extends AppCompatActivity {
         final List<EditText> edits = new ArrayList<>();
         final EditText titleEdit = (EditText) findViewById(R.id.creatortext);
         final EditText dateEdit = (EditText) findViewById(R.id.datetext);
+        final TextView dateView = (TextView) findViewById(R.id.dateTitle);
+        dateView.setVisibility(View.GONE);
+        dateEdit.setVisibility(View.GONE);
         final EditText timeEdit = (EditText) findViewById(R.id.timetext);
         final EditText placeEdit = (EditText) findViewById(R.id.placetext);
         final EditText foodEdit = (EditText) findViewById(R.id.foodtext);
