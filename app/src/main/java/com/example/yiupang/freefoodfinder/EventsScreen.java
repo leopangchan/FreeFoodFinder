@@ -1,6 +1,5 @@
 package com.example.yiupang.freefoodfinder;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -40,18 +39,7 @@ public class EventsScreen extends Fragment
         return view;
     }
 
-    private void setItemListener(final ListView listView)
-    {
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
-        {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id)
-            {
-                Event selectedEvent = (Event) adapterView.getAdapter().getItem(position);
-                startActivity(Utility.getDetail(selectedEvent, getContext()));
-            }
-        });
-    }
+
 
     private class HttpRequestSpecial extends HttpRequest {
         View view;
@@ -71,6 +59,19 @@ public class EventsScreen extends Fragment
                 listView.setAdapter(new EventArrayAdapter(view.getContext(), R.layout.events_list_item, events));
                 setItemListener(listView);
             }
+        }
+
+        private void setItemListener(final ListView listView)
+        {
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+            {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int position, long id)
+                {
+                    Event selectedEvent = (Event) adapterView.getAdapter().getItem(position);
+                    startActivity(Utility.getDetail(selectedEvent, getContext()));
+                }
+            });
         }
     }
 }

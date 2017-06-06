@@ -21,22 +21,15 @@ public class LoginActivity extends AppCompatActivity
 
     CallbackManager callbackManager;
     TextView info;
-    LoginButton loginButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
 
         super.onCreate(savedInstanceState);
+        LoginButton loginButton;
 
         FacebookSdk.sdkInitialize(getApplicationContext());
-
-        AccessTokenTracker accessTokenTracker = new AccessTokenTracker() {
-            @Override
-            protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken newAccessToken) {
-                updateWithToken(newAccessToken);
-            }
-        };
 
         updateWithToken(AccessToken.getCurrentAccessToken());
 
