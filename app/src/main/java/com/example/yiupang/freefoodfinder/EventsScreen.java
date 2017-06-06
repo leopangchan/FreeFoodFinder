@@ -44,12 +44,12 @@ public class EventsScreen extends Fragment
                 super.onResponse(response, code);
                 if (code != HttpURLConnection.HTTP_OK)
                 {
-                    /* Error Handling */
+                    Log.d("ON RESPONSE ERROR", "HTTP ERR: NOT OK");
                 }
                 else {
                     ObjectMapper mapper = new ObjectMapper();
                     TypeFactory typeFactory = mapper.getTypeFactory();
-                    List<Event> events = null;/*Parse to Event Objs*/
+                    List<Event> events = null; /*Parse to Event Objs*/
                     try {
                         events = mapper.reader(
                                 typeFactory.constructCollectionType(List.class, Event.class)

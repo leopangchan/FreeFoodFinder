@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,7 +14,6 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -45,7 +43,7 @@ public class MapScreen extends android.support.v4.app.Fragment implements OnMapR
         SupportMapFragment mapFragment = (SupportMapFragment) fragmentManager.findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        //
+
         HttpCall httpCall = new HttpCall();
         httpCall.setMethodType(HttpCall.GET);
         httpCall.setUrl("http://free-food-finder.herokuapp.com/events");
@@ -56,7 +54,7 @@ public class MapScreen extends android.support.v4.app.Fragment implements OnMapR
             public void onResponse(Object response, int code) {
                 super.onResponse(response, code);
                 if (code != HttpURLConnection.HTTP_OK) {
-                    /* Error Handling */
+                    Log.d("ON RESPONSE ERROR", "HTTP ERR: NOT OK");
                 } else {
                     ObjectMapper mapper = new ObjectMapper();
                     TypeFactory typeFactory = mapper.getTypeFactory();
@@ -105,39 +103,17 @@ public class MapScreen extends android.support.v4.app.Fragment implements OnMapR
 
         map.addMarker(new MarkerOptions().position(currPos).title(titles.get(i)).snippet(descrips.get(i)));
 
-
-
     }
 
     @Override
     public void onMapReady(GoogleMap map)
     {
         this.map = map;
-
-        /*
-
-        // Add a marker in Sydney and move the camera
         LatLng slo = new LatLng(35.2827778, -120.6586111);
-        LatLng sf = new LatLng(37.774929, -122.419416);
-        LatLng theP = new LatLng(35.302833, -120.651662);
-        map.addMarker(new MarkerOptions().position(slo).title("Downtown").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)).snippet("Downtown of slo"));
-        map.addMarker(new MarkerOptions().position(theP).title("The P").snippet("The “P” is a 50-by-30 foot landmark located atop a northwestern hill of California Polytechnic State University, San Luis Obispo, California."));
-        map.addMarker(new MarkerOptions().position(sf).title("Marker in sf").snippet("Golden Gate Bridge"));
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(slo, 12.0f));
-
-        */
-
-        LatLng slo = new LatLng(35.2827778, -120.6586111);
-        //map.addMarker(new MarkerOptions().position(slo).title("Downtown").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)).snippet("Downtown of slo"));
 
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(slo, 12.0f));
 
         Log.d("LATS NUM", "Events #: " + lats.size());
-/*
-        for(int i = 0; i < lats.size(); i++)
-        {
 
-
-        }*/
     }
 }

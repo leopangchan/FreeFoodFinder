@@ -1,5 +1,6 @@
 package com.example.yiupang.freefoodfinder;
 
+import android.util.Log;
 import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,14 +19,14 @@ import com.facebook.login.widget.LoginButton;
 public class LoginActivity extends AppCompatActivity
 {
 
-    private CallbackManager callbackManager;
-    private TextView info;
-    private LoginButton loginButton;
-
+    CallbackManager callbackManager;
+    TextView info;
+    LoginButton loginButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+
         super.onCreate(savedInstanceState);
 
         FacebookSdk.sdkInitialize(getApplicationContext());
@@ -56,18 +57,16 @@ public class LoginActivity extends AppCompatActivity
 
             @Override
             public void onCancel() {
-                info.setText("Login attempt cancelled.");
-
+                Log.d("LOGIN CANCEL","Login attempt cancelled.");
             }
 
             @Override
             public void onError(FacebookException error) {
-                info.setText("Login attempt failed.");
-
+                Log.d("LOGIN FAIL", "Login attempt failed.");
             }
+
         });
-
-
+        
     }
 
     // Check token to determine if already logged in
@@ -75,9 +74,6 @@ public class LoginActivity extends AppCompatActivity
 
         if (currentAccessToken != null) {
             nextActivity();
-
-        } else {
-            return;
         }
     }
 

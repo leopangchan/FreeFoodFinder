@@ -2,9 +2,7 @@ package com.example.yiupang.freefoodfinder;
 
 import android.os.Bundle;
 import android.widget.TextView;
-
 import android.support.v7.app.AppCompatActivity;
-
 
 public class EventDetailsScreen extends AppCompatActivity
 {
@@ -14,8 +12,6 @@ public class EventDetailsScreen extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_details_screen);
-
-       // Event selectedEvent = (Event)getIntent().getSerializableExtra("selectedEvent");
 
         String selectedEventName = (String)getIntent().getExtras().getSerializable("selectedEventName");
         String selectedEventTime = (String)getIntent().getExtras().getSerializable("selectedEventTime");
@@ -38,12 +34,6 @@ public class EventDetailsScreen extends AppCompatActivity
 
         TextView descText = (TextView) findViewById( R.id.descText);
         descText.setText(selectedEventDesc);
-
-
-
-       /* Log.d("NAME", selectedEventName);
-        Log.d("DESCRIPTION", selectedEventDesc);
-        Log.d("FOODTYPE", selectedEventFoodType); */
 
     }
 }
