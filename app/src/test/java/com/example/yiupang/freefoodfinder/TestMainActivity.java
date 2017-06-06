@@ -1,9 +1,9 @@
 package com.example.yiupang.freefoodfinder;
 
+import static org.junit.Assert.assertThat;
+import static org.hamcrest.CoreMatchers.instanceOf;
 import org.junit.Test;
 import java.lang.reflect.Method;
-import static org.hamcrest.CoreMatchers.instanceOf;
-import static org.junit.Assert.assertThat;
 
 /**
  * Created by yiupang on 6/4/2017.
@@ -12,11 +12,11 @@ import static org.junit.Assert.assertThat;
 public class TestMainActivity
 {
     @Test
-    public void TestSwitchFragment()
+    public void TestSwitchToAboutUs()
     {
-        AboutUsScreen expected = new AboutUsScreen();
         try
         {
+            AboutUsScreen expected = new AboutUsScreen();
             MainActivity m = new MainActivity();
             Method m1 = m.getClass().getDeclaredMethod("getSelectedFragement", int.class);
             m1.setAccessible(true);
@@ -25,7 +25,7 @@ public class TestMainActivity
         }
         catch (Exception e)
         {
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 }

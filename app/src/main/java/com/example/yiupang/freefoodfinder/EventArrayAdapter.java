@@ -31,16 +31,10 @@ public class EventArrayAdapter extends ArrayAdapter<Event>
     private Context context;
     List<Event> events;
 
-    // CODE SMELL: unused private field
-    private int layoutResourceId;
-
-
-
     public EventArrayAdapter(Context context, int layoutResourceId, List<Event> events)
     {
         super(context, layoutResourceId, events);
         this.context = context;
-        this.layoutResourceId = layoutResourceId;
         this.events = events;
     }
 
@@ -60,7 +54,8 @@ public class EventArrayAdapter extends ArrayAdapter<Event>
         LayoutInflater inflater = ((Activity) context).getLayoutInflater();
         View newConvertView = convertView;
 
-        if(newConvertView == null) {
+        if(newConvertView == null)
+        {
             newConvertView = inflater.inflate(R.layout.events_list_item, parent, false);
             holder = new ViewHolder();
 
@@ -75,11 +70,7 @@ public class EventArrayAdapter extends ArrayAdapter<Event>
             holder.desc.setText(rowPos.getDescription());
 
             newConvertView.setTag(holder);
-        } else {
-            // CODE SMELL AND BUG: Useless Assignment
-            holder = (ViewHolder) newConvertView.getTag();
         }
-
         return newConvertView;
     }
 }

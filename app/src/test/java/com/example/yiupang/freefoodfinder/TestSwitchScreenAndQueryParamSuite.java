@@ -9,8 +9,8 @@ import org.junit.runners.Suite;
  */
 
 @RunWith(Suite.class)
-@Suite.SuiteClasses({TestHttpCall.class, TestHttpRequest.class})
-public class TestHttpSuite
+@Suite.SuiteClasses({TestHttpRequest.class, TestHttpRequest.class})
+public class TestSwitchScreenAndQueryParamSuite
 {
 
 }

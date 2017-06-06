@@ -1,11 +1,10 @@
 package com.example.yiupang.freefoodfinder;
 
-import org.junit.Before;
+
 import org.junit.Test;
-import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 /**
@@ -14,42 +13,24 @@ import static org.junit.Assert.assertEquals;
  */
 public class TestHttpRequest
 {
-    private EventsScreen eventsScreen;
-
-    @Mock
-    private HttpRequest httpRequest;
-
-    @Captor
-    private ArgumentCaptor<HttpRequest> httpRequestArgumentCaptor;
-
-    @Before
-    public void setUp()
-    {
-        MockitoAnnotations.initMocks(this);
-        eventsScreen = new EventsScreen();
-    }
-
     @Test
-    public void testGetCall()
+    public void TestDataString()
     {
-        final String expected = "200";
-
-        HttpCall httpCall = new HttpCall();
-        httpCall.setMethodType(HttpCall.GET);
-        httpCall.setUrl("http://free-food-finder.herokuapp.com/events");
-        new HttpRequest(){
-            @Override
-            public void onResponse(Object response, int code)
-            {
-                super.onResponse(response, code);
-                assertEquals(expected, Integer.toString(code));
-            }
-        }.execute(httpCall);
-    }
-
-    @Test
-    public void testDoInBackground()
-    {
-
+        try
+        {
+            String expected = "?a=2&b=6";
+            HttpRequest request = new HttpRequest();
+            Map<String, String> queryParam = new HashMap<>();
+            queryParam.put("a", "2");
+            queryParam.put("b", "6");
+            Method m1 = request.getClass().getDeclaredMethod("getDataString", Map.class);
+            m1.setAccessible(true);
+            Object o = m1.invoke(request, queryParam);
+            assertEquals(expected, o.toString());
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 }
