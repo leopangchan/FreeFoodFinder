@@ -15,6 +15,7 @@ public class Event
     public long userId;
     public String name;
     public Date time;
+    public String place;
     public String foodType;
     public String description;
     public double lat;
