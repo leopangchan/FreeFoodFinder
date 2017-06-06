@@ -64,7 +64,6 @@ public class MyEventScreen extends android.support.v4.app.Fragment
             public void onClick(View v) {
 
                 Intent details = new Intent(getContext(), CreateEventScreen.class);
-
                 startActivity(details);
             }
         });
@@ -72,7 +71,7 @@ public class MyEventScreen extends android.support.v4.app.Fragment
         return view;
     }
 
-    public void setItemListener(final ListView listView)
+    private void setItemListener(final ListView listView)
     {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
@@ -80,22 +79,8 @@ public class MyEventScreen extends android.support.v4.app.Fragment
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id)
             {
                 Event selectedEvent = (Event) adapterView.getAdapter().getItem(position);
-
-                switchActivity(selectedEvent);
+                startActivity(Utility.getDetail(selectedEvent, getContext()));
             }
         });
-    }
-
-    public void switchActivity(Event selectedEvent)
-    {
-        Intent details = new Intent(getContext(), EventDetailsScreen.class);
-
-        details.putExtra("selectedEventName", selectedEvent.getName());
-        details.putExtra("selectedEventTime", selectedEvent.getTime());
-        details.putExtra("selectedEventPlace", selectedEvent.getPlace());
-        details.putExtra("selectedEventDesc", selectedEvent.getDescription());
-        details.putExtra("selectedEventFoodType", selectedEvent.getFoodType());
-
-        startActivity(details);
     }
 }
