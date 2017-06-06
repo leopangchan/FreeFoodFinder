@@ -67,7 +67,7 @@ public class MyEventScreen extends android.support.v4.app.Fragment
         final Button button = (Button) view.findViewById(R.id.create_event_button);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent details = new Intent(getContext(), CreateEventScreen1.class);
+                Intent details = new Intent(getContext(), CreateEventScreen.class);
                 /* Intent details = new Intent(getContext(), EventDetailsScreen1.class);
 
                 details.putExtra("selectedEventName", "name");
