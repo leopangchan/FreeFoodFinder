@@ -80,12 +80,6 @@ class HttpRequest extends AsyncTask<HttpCall, String, String>
                 urlConnection.disconnect();
             }
         }
-        /* finally
-        {
-            if(urlConnection != null) {
-                urlConnection.disconnect();
-            }
-        }*/
 
         return response.toString();
     }
