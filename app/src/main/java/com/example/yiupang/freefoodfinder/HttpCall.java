@@ -12,6 +12,11 @@ import java.util.Map;
 
 class HttpCall
 {
+    private String url;
+    private int methodType;
+    private JsonNode body;
+    private Map<String, String> query;
+
     static final int GET = 1;
     static final int POST = 2;
     static final int PUT = 3;
@@ -40,10 +45,7 @@ class HttpCall
         }
     }
 
-    private String url;
-    private int methodType;
-    private JsonNode body;
-    private Map<String, String> query;
+
 
     public String getUrl() {
         return url;
