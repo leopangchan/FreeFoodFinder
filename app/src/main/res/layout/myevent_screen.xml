@@ -21,7 +21,7 @@
         android:textStyle="italic"
         android:text="Create Event"
         android:gravity="center_horizontal|bottom"
-        android:background="#FF267F00"
+        android:background="#80FFFFFF"
         android:id="@+id/create_event_button"/>
 
     <TextView
