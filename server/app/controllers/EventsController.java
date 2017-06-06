@@ -6,8 +6,6 @@ import play.mvc.*;
 import play.libs.Json;
 
 import java.util.List;
-import java.util.LinkedList;
-import java.util.Date;
 
 import models.Event;
 
@@ -21,7 +19,7 @@ public class EventsController extends Controller {
     public Result get()
     {
 		List<Event> res = JPA.em().createQuery("SELECT e from Event e", Event.class).getResultList();
-		if (res == null || res.size() == 0)
+		if (res == null || res.isEmpty())
 		{
 			return notFound(Json.toJson("No Events"));
 		}
@@ -32,7 +30,7 @@ public class EventsController extends Controller {
     public Result create()
     {
     	Event e = Json.fromJson(request().body().asJson(), Event.class);
-    	e.eventId = 0;
+    	e.setEventId(0);
 		JPA.em().persist(e);
 		return created(Json.toJson(e));
     }
@@ -46,7 +44,7 @@ public class EventsController extends Controller {
     	{
     		return notFound("No event with id "+id);
     	}
-    	e.eventId = id;
+    	e.setEventId(id);
 		JPA.em().merge(e);
 		return ok(Json.toJson(e));
     }

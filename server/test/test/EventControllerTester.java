@@ -26,17 +26,19 @@ public class EventControllerTester extends WithApplication {
 	{ 
        Helpers.running(Helpers.fakeApplication(Helpers.inMemoryDatabase()), () -> {
     	    RequestBuilder rb = Helpers.fakeRequest("PUT", "/events");
-			String name = "Free Pizza Knight", desc = "Board games and free pizza";
-			float lat = 7f, lng = 0.3f;
-			Event e = new Event();
-			e.name = name;
-			e.lat = lat;
-			e.lng = lng;
-			e.description = desc;
+	    String name = "Free Pizza Knight";
+	    String desc = "Board games and free pizza";
+	    float lat = 7f;
+	    float lng = 0.3f;
+	    Event e = new Event();
+	    e.setName(name);
+	    e.setLat(lat);
+	    e.setLng(lng);
+	    e.setDescription(desc);
     	    rb.bodyJson(Json.toJson(e));
-    	   	Result res = Helpers.route(rb);
-			assertEquals(201, res.status());
-		});
+	    Result res = Helpers.route(rb);
+	    assertEquals(201, res.status());
+	   });
 	}
 
 }
