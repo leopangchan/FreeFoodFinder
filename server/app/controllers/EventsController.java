@@ -23,7 +23,7 @@ public class EventsController extends Controller {
 		List<Event> res = JPA.em().createQuery("SELECT e from Event e", Event.class).getResultList();
 		if (res == null || res.size() == 0)
 		{
-			return notFound();
+			return notFound(Json.toJson("No Events"));
 		}
 		return ok(Json.toJson(res));
     }
