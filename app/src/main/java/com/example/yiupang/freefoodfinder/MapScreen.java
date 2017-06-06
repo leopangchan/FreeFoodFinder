@@ -29,10 +29,10 @@ import java.util.ArrayList;
  */
 public class MapScreen extends android.support.v4.app.Fragment implements OnMapReadyCallback
 {
-    ArrayList<Double> lats = new ArrayList<Double>();
-    ArrayList<Double> lngs = new ArrayList<Double>();
-    ArrayList<String> titles = new ArrayList<String>();
-    ArrayList<String> descrips = new ArrayList<String>();
+    ArrayList<Double> lats = new ArrayList<>();
+    ArrayList<Double> lngs = new ArrayList<>();
+    ArrayList<String> titles = new ArrayList<>();
+    ArrayList<String> descrips = new ArrayList<>();
     GoogleMap map;
 
     @Override

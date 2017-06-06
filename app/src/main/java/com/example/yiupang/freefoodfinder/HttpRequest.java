@@ -12,6 +12,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by yiupang on 5/27/2017.
@@ -33,9 +35,10 @@ class HttpRequest extends AsyncTask<HttpCall, String, String>
     protected String doInBackground(HttpCall... params)
     {
         HttpURLConnection urlConnection = null;
-
+        Logger logger = Logger.getLogger(HttpRequest.class.getName());
         try
         {
+
             HttpCall httpCall = params[0];
             URL url;
             OutputStream os;
@@ -72,14 +75,17 @@ class HttpRequest extends AsyncTask<HttpCall, String, String>
         }
         catch (Exception e)
         {
-            e.printStackTrace();
-        }
-        finally
-        {
+            logger.log(Level.FINE,"context",e);
             if(urlConnection != null) {
                 urlConnection.disconnect();
             }
         }
+        /* finally
+        {
+            if(urlConnection != null) {
+                urlConnection.disconnect();
+            }
+        }*/
 
         return response.toString();
     }
@@ -96,18 +102,16 @@ class HttpRequest extends AsyncTask<HttpCall, String, String>
         onResponse(response, responseCode);
     }
 
-    /**
-     * It needs to be overwritten by the caller to handle the response
-    * */
+
     public void onResponse(Object response, int code)
     {
-
+         //It needs to be overwritten by the caller to handle the response
     }
 
     /**
      * Create the string for parameters in the URL based on the attributes and data passed by the caller
      * */
-    private String getDataString(Map<String, String> params) throws UnsupportedEncodingException
+    public String getDataString(Map<String, String> params) throws UnsupportedEncodingException
     {
         if (params == null)
         {
@@ -119,9 +123,9 @@ class HttpRequest extends AsyncTask<HttpCall, String, String>
         {
             result.append(isFirst? "?":"&");
             isFirst = false;
-            result.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
+            result.append(URLEncoder.encode(entry.getKey(), UTF_8));
             result.append("=");
-            result.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
+            result.append(URLEncoder.encode(entry.getValue(),UTF_8));
         }
         return result.toString();
     }

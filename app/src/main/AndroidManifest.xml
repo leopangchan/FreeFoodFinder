@@ -64,7 +64,7 @@
 
         <!-- Create  Activity -->
         <activity
-            android:name=".CreateEventScreen1"
+            android:name=".CreateEventScreen"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 

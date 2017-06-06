@@ -13,11 +13,10 @@ class Event
     private String foodType;
     private String description;
     private String place;
-    private double lat;
-    private double lng;
+    private double lat = 0;
+    private double lng = 0;
 
     Event(){
-        //Empty Constructor
     }
 
     Event(String name, String foodType, String description)

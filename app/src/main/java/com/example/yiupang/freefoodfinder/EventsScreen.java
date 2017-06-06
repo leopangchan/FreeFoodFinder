@@ -37,35 +37,8 @@ public class EventsScreen extends Fragment
         HttpCall httpCall = new HttpCall();
         httpCall.setMethodType(HttpCall.GET);
         httpCall.setUrl("http://free-food-finder.herokuapp.com/events");
-        new HttpRequest(){
-            @Override
-            public void onResponse(Object response, int code)
-            {
-                super.onResponse(response, code);
-                if (code != HttpURLConnection.HTTP_OK)
-                {
-                    Log.d("ON RESPONSE ERROR", "HTTP ERR: NOT OK");
-                }
-                else {
-                    ObjectMapper mapper = new ObjectMapper();
-                    TypeFactory typeFactory = mapper.getTypeFactory();
-                    List<Event> events = null; /*Parse to Event Objs*/
-                    try {
-                        events = mapper.reader(
-                                typeFactory.constructCollectionType(List.class, Event.class)
-                        ).readValue((JsonNode) response);
-                        ListView listView = (ListView) view.findViewById(R.id.events_screen);
-
-                        listView.setAdapter(new EventArrayAdapter(view.getContext(), R.layout.events_list_item, events));
-                        setItemListener(listView);
-                    } catch (IOException e) {
-                        /*handle error*/
-                        Log.d("size:  ", e +"");
-                    }
-
-                }
-            }
-        }.execute(httpCall);
+        HttpRequestSpecial hptr = new HttpRequestSpecial(view);
+        hptr.execute(httpCall);
 
         return view;
     }
@@ -94,5 +67,34 @@ public class EventsScreen extends Fragment
         details.putExtra("selectedEventFoodType", selectedEvent.getFoodType());
 
         startActivity(details);
+    }
+
+    private class HttpRequestSpecial extends HttpRequest {
+        View view;
+
+        public HttpRequestSpecial(View view) {
+            this.view = view;
+        }
+
+        public void onResponse(Object response, int code) {
+            super.onResponse(response, code);
+            if (code != HttpURLConnection.HTTP_OK)
+                Log.d("ON RESPONSE ERROR", "HTTP ERR: NOT OK");
+            else {
+                ObjectMapper mapper = new ObjectMapper();
+                TypeFactory typeFactory = mapper.getTypeFactory();
+                List<Event> events = null; /*Parse to Event Objs*/
+                try {
+                    events = mapper.reader(
+                            typeFactory.constructCollectionType(List.class, Event.class)
+                    ).readValue((JsonNode) response);
+                    ListView listView = (ListView) view.findViewById(R.id.events_screen);
+                    listView.setAdapter(new EventArrayAdapter(view.getContext(), R.layout.events_list_item, events));
+                    setItemListener(listView);
+                } catch (IOException e) {
+                    Log.d("size:  ", e + "");
+                }
+            }
+        }
     }
 }
