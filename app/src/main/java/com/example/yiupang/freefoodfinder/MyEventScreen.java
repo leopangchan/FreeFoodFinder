@@ -21,26 +21,21 @@ public class MyEventScreen extends android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
         final View view = inflater.inflate(R.layout.myevent_screen, container, false);
-        Event google = new Event("Google Networking Session", "A Pizza", "We're hiring!!");
-        google.setFoodType("Pizza");
-        google.setPlace("14 Computer Science");
+        Event google = new Event("Google Networking Session", "A Pizza", "We're hiring");
+        google.setPlace("14");
         google.setDate("2017-06-21");
-        Event amazon = new Event("Amazon Networking Session", "Two Pizzas", "We're hiring!!");
-        amazon.setFoodType("Pizza");
-        amazon.setPlace("14 Computer Science");
+        Event amazon = new Event("Amazon Networking Session", "Two Pizzas", "We're hiring!");
+        amazon.setPlace("Computer Science Building");
         amazon.setDate("2017-06-22");
-        Event microsoft = new Event("Microsoft Networking Session", "Three Pizzas", "We're hiring!!");
-        microsoft.setFoodType("Pizza");
-        microsoft.setPlace("14 Computer Science");
-        microsoft.setDate("2017-06-22");
-        Event airbnb = new Event("Airbnb Techtalk", "Three Pizzas", "We're hiring!!");
-        airbnb.setFoodType("Pizza");
-        airbnb.setPlace("14 Computer Science");
-        airbnb.setDate("2017-06-22");
-        Event facebook = new Event("Facebook Networking Session", "Four Pizzas", "We're hiring!!");
-        facebook.setFoodType("Pizza");
-        facebook.setPlace("14 Computer Science");
-        facebook.setDate("2017-06-22");
+        Event microsoft = new Event("Microsoft Networking Session", "Three Pizzas", "We're hiring!!!");
+        microsoft.setPlace("University Union");
+        microsoft.setDate("2017-06-23");
+        Event airbnb = new Event("Airbnb Techtalk", "Four Pizzas", "We are hiring");
+        airbnb.setPlace("Kennedy Library");
+        airbnb.setDate("2017-06-24");
+        Event facebook = new Event("Facebook Networking Session", "Five Pizzas", "We are hiring!");
+        facebook.setPlace("Engineering West");
+        facebook.setDate("2017-06-25");
 
         ArrayList<Event> myEventsArray = new ArrayList<>();
         myEventsArray.add(google);
@@ -67,14 +62,8 @@ public class MyEventScreen extends android.support.v4.app.Fragment
         final Button button = (Button) view.findViewById(R.id.create_event_button);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent details = new Intent(getContext(), CreateEventScreen.class);
-                /* Intent details = new Intent(getContext(), EventDetailsScreen1.class);
 
-                details.putExtra("selectedEventName", "name");
-                details.putExtra("selectedEventTime", "time");
-                details.putExtra("selectedEventPlace", "place");
-                details.putExtra("selectedEventDesc", "desc");
-                details.putExtra("selectedEventFoodType", "type"); */
+                Intent details = new Intent(getContext(), CreateEventScreen.class);
 
                 startActivity(details);
             }

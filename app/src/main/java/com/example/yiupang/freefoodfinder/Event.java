@@ -1,14 +1,6 @@
 package com.example.yiupang.freefoodfinder;
 
-import android.util.Log;
-
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.type.TypeFactory;
-
-import java.io.IOException;
 import java.util.Date;
-import java.util.List;
 
 class Event
 {

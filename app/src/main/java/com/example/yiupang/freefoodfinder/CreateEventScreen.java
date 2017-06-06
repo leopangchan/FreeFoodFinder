@@ -79,7 +79,7 @@ public class CreateEventScreen extends AppCompatActivity {
         float[] coords;
 
         switch(place){
-            case "KennedyLibrary":
+            case "Kennedy Library":
             case "35": coords = new float[]{35.30187f, -120.663861f};
                 break;
             case "Computer Science Building":
@@ -87,12 +87,6 @@ public class CreateEventScreen extends AppCompatActivity {
                 break;
             case "Engineering East":
             case "20": coords = new float[]{35.300576f, -120.661726f};
-                break;
-            case "Science":
-            case "52": coords = new float[]{35.300571f, -120.660192f};
-                break;
-            case "Engineering West":
-            case "21": coords = new float[]{35.300066f, -120.663209f};
                 break;
             default: coords = new float[]{35.305005f,-120.662494f};
         }
