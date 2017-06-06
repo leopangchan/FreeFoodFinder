@@ -52,8 +52,8 @@ public class EventsScreen extends Fragment
             super.onResponse(response, code);
             if (code != HttpURLConnection.HTTP_OK)
                 Log.d("ON RESPONSE ERROR", "HTTP ERR: NOT OK");
-            else {
-
+            else
+            {
                 List<Event> events = Utility.parseFromJSONToEventObjs((JsonNode) response);
                 ListView listView = (ListView) view.findViewById(R.id.events_screen);
                 listView.setAdapter(new EventArrayAdapter(view.getContext(), R.layout.events_list_item, events));

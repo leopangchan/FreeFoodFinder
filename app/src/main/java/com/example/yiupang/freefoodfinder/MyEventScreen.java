@@ -22,10 +22,10 @@ public class MyEventScreen extends android.support.v4.app.Fragment
     {
         final View view = inflater.inflate(R.layout.myevent_screen, container, false);
         Event google = new Event("Google Networking Session", "A Pizza", "We're hiring");
-        google.setPlace("14");
+        google.setPlace("Kennedy Library");
         google.setDate("2017-06-21");
         Event amazon = new Event("Amazon Networking Session", "Two Pizzas", "We're hiring!");
-        amazon.setPlace("Computer Science Building");
+        amazon.setPlace("20");
         amazon.setDate("2017-06-22");
         Event microsoft = new Event("Microsoft Networking Session", "Three Pizzas", "We're hiring!!!");
         microsoft.setPlace("University Union");
@@ -34,7 +34,7 @@ public class MyEventScreen extends android.support.v4.app.Fragment
         airbnb.setPlace("Kennedy Library");
         airbnb.setDate("2017-06-24");
         Event facebook = new Event("Facebook Networking Session", "Five Pizzas", "We are hiring!");
-        facebook.setPlace("Engineering West");
+        facebook.setPlace("20");
         facebook.setDate("2017-06-25");
 
         ArrayList<Event> myEventsArray = new ArrayList<>();

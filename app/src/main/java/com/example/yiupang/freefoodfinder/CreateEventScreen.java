@@ -79,6 +79,7 @@ public class CreateEventScreen extends AppCompatActivity {
         e.setFoodType(food);
         e.setDescription(desc);
     }
+
     public float[] place2Coordinates(String place){
         float[] coords;
 
