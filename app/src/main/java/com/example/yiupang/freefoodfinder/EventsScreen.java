@@ -13,10 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.type.TypeFactory;
 
-import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.util.List;
 
@@ -72,7 +69,7 @@ public class EventsScreen extends Fragment
     private class HttpRequestSpecial extends HttpRequest {
         View view;
 
-        public HttpRequestSpecial(View view) {
+        private HttpRequestSpecial(View view) {
             this.view = view;
         }
 
@@ -81,19 +78,11 @@ public class EventsScreen extends Fragment
             if (code != HttpURLConnection.HTTP_OK)
                 Log.d("ON RESPONSE ERROR", "HTTP ERR: NOT OK");
             else {
-                ObjectMapper mapper = new ObjectMapper();
-                TypeFactory typeFactory = mapper.getTypeFactory();
-                List<Event> events = null; /*Parse to Event Objs*/
-                try {
-                    events = mapper.reader(
-                            typeFactory.constructCollectionType(List.class, Event.class)
-                    ).readValue((JsonNode) response);
-                    ListView listView = (ListView) view.findViewById(R.id.events_screen);
-                    listView.setAdapter(new EventArrayAdapter(view.getContext(), R.layout.events_list_item, events));
-                    setItemListener(listView);
-                } catch (IOException e) {
-                    Log.d("size:  ", e + "");
-                }
+
+                List<Event> events = Utility.parseFromJSONToEventObjs((JsonNode) response);
+                ListView listView = (ListView) view.findViewById(R.id.events_screen);
+                listView.setAdapter(new EventArrayAdapter(view.getContext(), R.layout.events_list_item, events));
+                setItemListener(listView);
             }
         }
     }

@@ -8,8 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -17,7 +15,6 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.util.List;
 import java.util.ArrayList;
@@ -43,7 +40,6 @@ public class MapScreen extends android.support.v4.app.Fragment implements OnMapR
         SupportMapFragment mapFragment = (SupportMapFragment) fragmentManager.findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-
         HttpCall httpCall = new HttpCall();
         httpCall.setMethodType(HttpCall.GET);
         httpCall.setUrl("http://free-food-finder.herokuapp.com/events");
@@ -53,30 +49,16 @@ public class MapScreen extends android.support.v4.app.Fragment implements OnMapR
             @Override
             public void onResponse(Object response, int code) {
                 super.onResponse(response, code);
-                if (code != HttpURLConnection.HTTP_OK) {
+                if (code != HttpURLConnection.HTTP_OK)
+                {
                     Log.d("ON RESPONSE ERROR", "HTTP ERR: NOT OK");
-                } else {
-                    ObjectMapper mapper = new ObjectMapper();
-                    TypeFactory typeFactory = mapper.getTypeFactory();
-                    List<Event> events = null;/*Parse to Event Objs*/
-                    try {
-
-                        events = mapper.reader(
-                                typeFactory.constructCollectionType(List.class, Event.class)
-                        ).readValue((JsonNode) response);
-
-                        Log.d("EVENTS NUM", "Events #: " + events.size());
-
-                        for(int i = 0; i < events.size(); i++)
-                        {
-                            dropPin(events, i);
-                        }
-
-                    } catch (IOException e) {
-                        /*handle error*/
-                        Log.d("size:  ", e + "");
-                    }
-
+                }
+                else
+                {
+                    List<Event> events = Utility.parseFromJSONToEventObjs((JsonNode) response);
+                    Log.d("EVENTS NUM", "Events #: " + events.size());
+                    for(int i = 0; i < events.size(); i++)
+                        dropPin(events, i);
                 }
             }
 
