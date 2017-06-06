@@ -21,23 +21,43 @@ public class MyEventScreen extends android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
         final View view = inflater.inflate(R.layout.myevent_screen, container, false);
+        Event google = new Event("Google Networking Session", "A Pizza", "We're hiring!!");
+        google.setFoodType("Pizza");
+        google.setPlace("14 Computer Science");
+        google.setDate("2017-06-21");
+        Event amazon = new Event("Amazon Networking Session", "Two Pizzas", "We're hiring!!");
+        amazon.setFoodType("Pizza");
+        amazon.setPlace("14 Computer Science");
+        amazon.setDate("2017-06-22");
+        Event microsoft = new Event("Microsoft Networking Session", "Three Pizzas", "We're hiring!!");
+        microsoft.setFoodType("Pizza");
+        microsoft.setPlace("14 Computer Science");
+        microsoft.setDate("2017-06-22");
+        Event airbnb = new Event("Airbnb Techtalk", "Three Pizzas", "We're hiring!!");
+        airbnb.setFoodType("Pizza");
+        airbnb.setPlace("14 Computer Science");
+        airbnb.setDate("2017-06-22");
+        Event facebook = new Event("Facebook Networking Session", "Four Pizzas", "We're hiring!!");
+        facebook.setFoodType("Pizza");
+        facebook.setPlace("14 Computer Science");
+        facebook.setDate("2017-06-22");
 
-        ArrayList<Event> myEventsArray = new ArrayList();
-        myEventsArray.add(new Event("Free Food 1", "Pizza", "Come !!"));
-        myEventsArray.add(new Event("Free Food 5", "GodPizza", "Come Again !!"));
-        myEventsArray.add(new Event("Free Food 4", "GodPizza", "Come Again !!"));
-        myEventsArray.add(new Event("Free Food 8", "GodPizza", "Come Again !!"));
+        ArrayList<Event> myEventsArray = new ArrayList<>();
+        myEventsArray.add(google);
+        myEventsArray.add(amazon);
+        myEventsArray.add(microsoft);
+        myEventsArray.add(airbnb);
+        myEventsArray.add(facebook);
 
         EventArrayAdapter myEventsAdapter = new EventArrayAdapter(view.getContext(), R.layout.events_list_item, myEventsArray);
         ListView myEventsListView = (ListView) view.findViewById(R.id.myevents_list);
         myEventsListView.setAdapter(myEventsAdapter);
         setItemListener(myEventsListView);
 
-        ArrayList<Event> favEventsArray = new ArrayList();
-        favEventsArray.add(new Event("Free Food 2", "Pizza", "Come !!"));
-        favEventsArray.add(new Event("Free Food 3", "BobPizza", "Come Again !!"));
-        favEventsArray.add(new Event("Free Food 6", "BobPizza", "Come Again !!"));
-        favEventsArray.add(new Event("Free Food 9", "BobPizza", "Come Again !!"));
+        ArrayList<Event> favEventsArray = new ArrayList<>();
+        favEventsArray.add(facebook);
+        favEventsArray.add(airbnb);
+        favEventsArray.add(microsoft);
 
         EventArrayAdapter adapter = new EventArrayAdapter(view.getContext(), R.layout.events_list_item, favEventsArray);
         ListView favEventsListView = (ListView) view.findViewById(R.id.favevents_list);
