@@ -11,6 +11,9 @@ import java.util.Locale;
 
 public class EventDetailsScreen extends AppCompatActivity
 {
+    String selectedEventName;
+    TextView nameText;
+    int success;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -20,7 +23,7 @@ public class EventDetailsScreen extends AppCompatActivity
 
         SimpleDateFormat dayFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
 
-        String selectedEventName = (String)getIntent().getExtras().getSerializable("selectedEventName");
+        selectedEventName = (String)getIntent().getExtras().getSerializable("selectedEventName");
         String selectedEventTime = (String)getIntent().getExtras().getSerializable("selectedEventTime");
         String selectedEventPlace = (String)getIntent().getExtras().getSerializable("selectedEventPlace");
         String selectedEventDesc = (String)getIntent().getExtras().getSerializable("selectedEventDesc");
@@ -31,7 +34,7 @@ public class EventDetailsScreen extends AppCompatActivity
         TextView dateText = (TextView) findViewById(R.id.datetext);
         dateText.setVisibility(View.GONE);
 
-        TextView nameText = (TextView) findViewById(R.id.nameText);
+        nameText = (TextView) findViewById(R.id.nameText);
         nameText.setText(selectedEventName);
 
         TextView timeText = (TextView) findViewById(R.id.timeText);
@@ -47,6 +50,17 @@ public class EventDetailsScreen extends AppCompatActivity
 
         TextView descText = (TextView) findViewById( R.id.descText);
         descText.setText(selectedEventDesc);
+
+        if(selectedEventDesc != null && selectedEventFoodType != null
+                && selectedEventPlace != null && selectedEventTime != null
+                && selectedEventName != null)
+        {
+            success = 1;
+        }
+        else
+        {
+            success = 0;
+        }
 
     }
 }
