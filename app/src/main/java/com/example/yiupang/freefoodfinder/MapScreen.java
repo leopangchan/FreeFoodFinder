@@ -59,11 +59,9 @@ public class MapScreen extends android.support.v4.app.Fragment implements OnMapR
                 {
                     List<Event> events = Utility.parseFromJSONToEventObjs((JsonNode) response);
                     Log.d("EVENTS NUM", "Events #: " + events.size());
-                    for(int i = 0; i < events.size(); i++)
-                    {
 
-                        dropPin(events, i);
-                    }
+                    dropPin(events);
+
                 }
             }
 
@@ -72,40 +70,49 @@ public class MapScreen extends android.support.v4.app.Fragment implements OnMapR
         return view;
     }
 
-    public void dropPin(List<Event> events, int i)
+    public void dropPin(List<Event> events)
     {
-        Event currEvent = events.get(i);
 
-        double offset = 0.00005f;
-        double lat = currEvent.getLat();
-        double lng = currEvent.getLng();
-        while(markerLocations.containsKey(Double.toString(lat + lng)))
+        for(int i = 0; i < events.size(); i++)
         {
-            lat += offset;
-            lng += offset;
+            Event currEvent = events.get(i);
+
+            double offset = 0.00005f;
+            double lat = currEvent.getLat();
+            double lng = currEvent.getLng();
+            while (markerLocations.containsKey(Double.toString(lat + lng)))
+            {
+                lat += offset;
+                lng += offset;
+            }
+            currEvent.setLat(lat);
+            currEvent.setLng(lng);
+            markerLocations.put(Double.toString(currEvent.getLat() + currEvent.getLng()), "");
+
+            String title = currEvent.getName();
+            String desc = currEvent.getDescription();
+
+            lats.add(lat);
+            lngs.add(lng);
+            titles.add(title);
+            descrips.add(desc);
+
+            LatLng currPos = new LatLng(lats.get(i), lngs.get(i));
+
+            if(map == null)
+                continue;
+            map.addMarker(new MarkerOptions().position(currPos).title(titles.get(i)).snippet(descrips.get(i)));
+
         }
-        currEvent.setLat(lat);
-        currEvent.setLng(lng);
-        markerLocations.put(Double.toString(currEvent.getLat() + currEvent.getLng()), "");
-
-        String title = currEvent.getName();
-        String desc = currEvent.getDescription();
-
-        lats.add(lat);
-        lngs.add(lng);
-        titles.add(title);
-        descrips.add(desc);
-
-        LatLng currPos = new LatLng(lats.get(i), lngs.get(i));
-
-        map.addMarker(new MarkerOptions().position(currPos).title(titles.get(i)).snippet(descrips.get(i)));
     }
+
 
     @Override
     public void onMapReady(GoogleMap map)
     {
         this.map = map;
         LatLng slo = new LatLng(35.2827778, -120.6586111);
+
 
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(slo, 12.0f));
 
